@@ -24,35 +24,34 @@ public class Conference {
         DataSource dataSource = dbConnection.createDataSource();
         dataSource.getConnection();
 
-        /*Forsøker å lage Days-objekter og skrive dem ut*/
+        /*Forsøker å lage et standard-objekt av track og skrive dem ut*/
         Tracks tracks = new Tracks(dataSource);
-        tracks.createStandardDays();
-        tracks.createStandardRooms();
+        tracks.createStandardTracks ();
 
 //        ArrayList<Tracks> tracksArrayList = new ArrayList<>();
 
         /*Tester ut metodene fra RoomsDao mot selve databasen*/
-        Rooms rooms = new Rooms(2L, "Rosérommet");
-        Rooms rooms1 = new Rooms(3L, "Testrom");
-        Rooms rooms2 = new Rooms(4L, "Himmelsalen");
-
-        RoomsDao roomsDao = new RoomsDao(dataSource);
-        roomsDao.save(rooms);
-        roomsDao.save(rooms1);
-        roomsDao.save(rooms2);
-
-        roomsDao.listAll();
-
-        Days days = new Days(1L, "Mandag", "22.10.2018");
-        Days days1 = new Days(1L, "Mandag", "22.10.2018");
-        Days days2 = new Days(1L, "Mandag", "22.10.2018");
-
-        DaysDao daysDao = new DaysDao(dataSource);
-        daysDao.save(days);
-        daysDao.save(days1);
-        daysDao.save(days2);
-
-        daysDao.listAll ();
+//        Rooms rooms = new Rooms(2L, "Rosérommet");
+//        Rooms rooms1 = new Rooms(3L, "Testrom");
+//        Rooms rooms2 = new Rooms(4L, "Himmelsalen");
+//
+//        RoomsDao roomsDao = new RoomsDao(dataSource);
+//        roomsDao.save(rooms);
+//        roomsDao.save(rooms1);
+//        roomsDao.save(rooms2);
+//
+//        roomsDao.listAll();
+//
+//        Days days = new Days(1L, "Mandag", "22.10.2018");
+//        Days days1 = new Days(1L, "Mandag", "22.10.2018");
+//        Days days2 = new Days(1L, "Mandag", "22.10.2018");
+//
+//        DaysDao daysDao = new DaysDao(dataSource);
+//        daysDao.save(days);
+//        daysDao.save(days1);
+//        daysDao.save(days2);
+//
+//        daysDao.listAll ();
 
 
 //        createProperties ();

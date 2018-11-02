@@ -40,10 +40,14 @@ public class TimeslotsDaoTest {
     }
 
     private Timeslots sampleTimeslots() {
-        Timeslots timeslots = new Timeslots();
+        Timeslots timeslots = new Timeslots(randomLong (), randomTime ());
 
         timeslots.setTime(randomTime());
         return timeslots;
+    }
+
+    private Long randomLong(){
+        return pickOneLong(new Long[] {1L, 2L, 3L, 4L, 5L, 6L, 7L, 8L, 9L, 10L});
     }
 
     private String randomTime() {
@@ -53,6 +57,10 @@ public class TimeslotsDaoTest {
 
     private String pickOne(String[] strings) {
         return strings[random.nextInt(strings.length)];
+    }
+
+    private Long pickOneLong(Long[] longs) {
+        return longs[random.nextInt(longs.length)];
     }
 
     private static Random random = new Random ();

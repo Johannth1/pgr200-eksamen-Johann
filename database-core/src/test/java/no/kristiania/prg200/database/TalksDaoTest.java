@@ -43,7 +43,7 @@ public class TalksDaoTest {
     }
 
     private Talks sampleTalks() {
-        Talks talks = new Talks();
+        Talks talks = new Talks(randomLong (), randomTitle (), randomDescription (), randomTopic ());
         talks.setTitle(randomTitle());
         talks.setTopic(randomTopic());
         talks.setDescription(randomDescription());
@@ -62,8 +62,16 @@ public class TalksDaoTest {
         return pickOne(new String[] {"En samtale om data.", "Informasjon om tid og rom.", "Mange steder på en gang."});
     }
 
+    private Long randomLong(){
+        return pickOneLong(new Long[] {1L, 2L, 3L, 4L, 5L, 6L, 7L, 8L, 9L, 10L});
+    }
+
     private String pickOne(String[] strings) {
         return strings[random.nextInt(strings.length)];
+    }
+
+    private Long pickOneLong(Long[] longs){
+        return longs[random.nextInt(longs.length)];
     }
 
     private static Random random = new Random ();

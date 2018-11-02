@@ -7,7 +7,7 @@ public class Timeslots {
     private String time;
     Long id;
 
-    public Timeslots() {
+    public Timeslots(Long id, String time) {
         this.time = time;
         this.id = id;
     }

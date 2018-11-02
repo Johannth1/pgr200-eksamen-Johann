@@ -40,10 +40,14 @@ public class RoomsDaoTest {
     }
 
     private Rooms sampleRooms() {
-        Rooms rooms = new Rooms(0L, "");
+        Rooms rooms = new Rooms(randomLong (), randomRoom ());
 
         rooms.setRoom(randomRoom());
         return rooms;
+    }
+
+    private Long randomLong(){
+        return pickOneLong(new Long[] {1L, 2L, 3L, 4L, 5L, 6L, 7L, 8L, 9L, 10L});
     }
 
     private String randomRoom() {
@@ -53,6 +57,10 @@ public class RoomsDaoTest {
 
     private String pickOne(String[] strings) {
         return strings[random.nextInt(strings.length)];
+    }
+
+    private Long pickOneLong(Long[] longs) {
+        return longs[random.nextInt(longs.length)];
     }
 
     private static Random random = new Random ();

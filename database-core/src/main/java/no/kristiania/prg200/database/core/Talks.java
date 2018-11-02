@@ -8,7 +8,7 @@ public class Talks {
     private String title, description, topic;
     private Long id;
 
-    public Talks() {
+    public Talks(Long id, String title, String description, String topic) {
         this.title = title;
         this.description = description;
         this.topic = topic;

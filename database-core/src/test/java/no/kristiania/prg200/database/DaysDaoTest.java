@@ -43,14 +43,18 @@ public class DaysDaoTest {
     }
 
     private Days sampleDays() {
-        Days days = new Days(0L, "", "");
+        Days days = new Days(randomLong (), randomDays (), randomDates ());
         days.setDays ( randomDays() );
         days.setDate ( randomDates () );
         return days;
     }
 
+    private Long randomLong(){
+        return pickOneLong(new Long[] {1L, 2L, 3L, 4L, 5L, 6L, 7L, 8L, 9L, 10L});
+    }
+
     private String randomDates() {
-        return pickOne ( new String[] {"01.10.2018", "07.10.2018", "22.10.2018", "01.11.2018", "03.11.2018"});
+        return pickOne ( new String[] {"01.10", "07.10", "22.10", "01.11", "03.11"});
     }
 
     private String randomDays() {
@@ -59,6 +63,10 @@ public class DaysDaoTest {
 
     private String pickOne(String[] strings) {
         return strings[random.nextInt(strings.length)];
+    }
+
+    private Long pickOneLong(Long[] longs) {
+        return longs[random.nextInt(longs.length)];
     }
 
     private static Random random = new Random ();
