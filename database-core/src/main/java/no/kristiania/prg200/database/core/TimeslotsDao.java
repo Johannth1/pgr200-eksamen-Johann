@@ -41,7 +41,7 @@ public class TimeslotsDao extends AbstractDao implements DataAccessObject<Timesl
 
     @Override
     public List<Timeslots> listAll() throws SQLException {
-        return list("select * from timeslots", this::mapToTimeslots);
+        return list("SELECT * FROM timeslots", this::mapToTimeslots);
     }
 
 

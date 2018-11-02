@@ -11,91 +11,83 @@ import java.util.Random;
  */
 
 public class Tracks extends AbstractDao {
-    Long id;
-    ArrayList<Days> daysArrayList;
+    Long id = getId ();
+    String tracks;
+/*    ArrayList<Days> daysArrayList;
     ArrayList<Rooms> roomsArrayList;
     ArrayList<Talks> talksArrayList;
-    ArrayList<Timeslots> timeslotsArrayList;
+    ArrayList<Timeslots> timeslotsArrayList;*/
 
     Random random = new Random();
 
 
     public Tracks(DataSource dataSource){
         super(dataSource);
-        daysArrayList = new ArrayList<>();
+/*        daysArrayList = new ArrayList<>();
         roomsArrayList = new ArrayList<>();
         talksArrayList = new ArrayList<>();
-        timeslotsArrayList = new ArrayList<>();
+        timeslotsArrayList = new ArrayList<>();*/
     }
 
-    public boolean createStandardTracks(){
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getTracks() {
+        return tracks;
+    }
+
+    public void setTracks(String tracks) {
+        this.tracks = tracks;
+    }
+
+    public Tracks createStandardTracks(){
+        Tracks tracks = new Tracks(dataSource);
+        //tracks.setId(randomLong());
+        tracks.setTracks(randomTracks());
         createStandardDays();
         createStandardRooms();
         createStandardTalks();
         createStandardTimeslots();
 
-        System.out.println(daysArrayList  + "\n"
-                         + roomsArrayList + "\n"
-                         + talksArrayList + "\n"
-                         + timeslotsArrayList);
-        return true;
+//        System.out.println(daysArrayList  + "\n"
+//                         + roomsArrayList + "\n"
+//                         + talksArrayList + "\n"
+//                         + timeslotsArrayList);
+        return tracks;
     }
-
-//    public boolean createStandardDays(){
-////        DaysDao daysDao = new DaysDao(dataSource);
-//        Days days = new Days(randomLong (), randomDays(), randomDates());
-//        daysArrayList.add(days);
-//        //System.out.println(daysArrayList);
-//        return true;
-//    }
 
     public Days createStandardDays(){
 //        DaysDao daysDao = new DaysDao(dataSource);
         Days days = new Days(randomLong (), randomDays(), randomDates());
-        daysArrayList.add(days);
+        //daysArrayList.add(days);
         //System.out.println(daysArrayList);
         return days;
     }
 
-//    public boolean createStandardRooms(){
-//        Rooms rooms = new Rooms (randomLong (), randomRooms ());
-//        roomsArrayList.add(rooms);
-//        //System.out.println(roomsArrayList);
-//        return true;
-//    }
-
     public Rooms createStandardRooms(){
         Rooms rooms = new Rooms (randomLong (), randomRooms ());
-        roomsArrayList.add(rooms);
+        //roomsArrayList.add(rooms);
         //System.out.println(roomsArrayList);
         return rooms;
     }
 
-//    public boolean createStandardTalks(){
-//        Talks talks = new Talks(randomLong (), randomTitle (), randomDescription (), randomTopic ());
-//        talksArrayList.add(talks);
-//        //System.out.println(talksArrayList);
-//        return true;
-//    }
-
     public Talks createStandardTalks(){
         Talks talks = new Talks(randomLong (), randomTitle (), randomDescription (), randomTopic ());
-        talksArrayList.add(talks);
+        //talksArrayList.add(talks);
         //System.out.println(talksArrayList);
         return talks;
     }
 
-//    public boolean createStandardTimeslots(){
-//        Timeslots timeslots = new Timeslots(randomLong(), randomTime ());
-//        timeslotsArrayList.add(timeslots);
-//        //System.out.println(timeslotsArrayList);
-//        return true;
-//    }
-
     public Timeslots createStandardTimeslots(){
         Timeslots timeslots = new Timeslots(randomLong(), randomTime ());
-        timeslotsArrayList.add(timeslots);
+        //timeslotsArrayList.add(timeslots);
         //System.out.println(timeslotsArrayList);
+        System.out.println(toString());
         return timeslots;
     }
 
@@ -130,6 +122,10 @@ public class Tracks extends AbstractDao {
         return pickOne ( new String[] {"08.00-09.00", "11.00-14.15", "10.00-13.00", "", "16.30-18.00"});
     }
 
+    private String randomTracks(){
+        return pickOne ( new String[]{"Forelesning 1", "Forelesning 2", "Samtale", "Track 20"} );
+    }
+
     private String pickOne(String[] strings) {
         return strings[random.nextInt(strings.length)];
     }
@@ -138,6 +134,14 @@ public class Tracks extends AbstractDao {
         return longs[random.nextInt(longs.length)];
     }
 
-
+    /*@Override
+    public String toString() {
+        return getClass().getSimpleName() + "{ ID = "      + id                 + "\n"
+                                          + ", Day = "     + daysArrayList      + "\n"
+                                          + ", Room = "    + roomsArrayList     + "\n"
+                                          + ", Talks ="    + talksArrayList     + "\n"
+                                          + ", Timeslot =" + timeslotsArrayList
+                                          + " }";
+    }*/
 }
 

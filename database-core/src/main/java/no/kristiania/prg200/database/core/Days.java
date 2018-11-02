@@ -61,9 +61,9 @@ public class Days {
 
     @Override
     public String toString() {
-        return getClass().getSimpleName()
-                + "{days=" + days
-                + ",date=" + date
-                + ",id="   + id  + "}";
+        return getClass().getSimpleName() + "{ Days = " + days
+                                          + ", Date = " + date
+                                          + ", ID= "    + id
+                                          + " }";
     }
 }

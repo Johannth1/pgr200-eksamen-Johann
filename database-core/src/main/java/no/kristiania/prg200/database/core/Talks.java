@@ -8,10 +8,10 @@ public class Talks {
     private String title, description, topic;
     private Long id;
 
-    public Talks(Long id, String title, String description, String topic) {
+    public Talks(Long id, String title, String topic, String description) {
         this.title = title;
-        this.description = description;
         this.topic = topic;
+        this.description = description;
         this.id = id;
     }
 
@@ -24,20 +24,20 @@ public class Talks {
         this.title = title;
     }
 
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
     public String getTopic() {
         return topic;
     }
 
     public void setTopic(String topic) {
         this.topic = topic;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public Long getId() {
@@ -67,8 +67,10 @@ public class Talks {
 
     @Override
     public String toString() {
-        return getClass().getSimpleName() + "{title="   + title     + ",description="
-                                          + description + ",topic=" + topic
-                                          + "id=" + id  + "}";
+        return getClass().getSimpleName() + "{ Title = "       + title
+                                          + ", Topic = "       + topic
+                                          + ", Description = " + description
+                                          + " ID = "           + id
+                                          + " }";
     }
 }

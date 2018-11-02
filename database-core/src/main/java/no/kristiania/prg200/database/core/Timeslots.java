@@ -45,7 +45,10 @@ public class Timeslots {
 
         @Override
         public String toString () {
-            return getClass().getSimpleName() + "{time=" + time + ",id=" + id + "}";
+
+        return getClass().getSimpleName() + "{ Timeslot = " + time
+                                          + ", ID = "       + id
+                                          + " }";
         }
 
 }

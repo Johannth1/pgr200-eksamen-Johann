@@ -32,7 +32,7 @@ public class DBConnection {
 
 
         flyway.migrate();
-        //flyway.clean();
+//        flyway.clean();
 
         return dataSource;
     }

@@ -45,7 +45,10 @@ public class Rooms {
 
     @Override
     public String toString () {
-        return getClass().getSimpleName() + "{id=" + id + ",room=" + room + "}";
+
+        return getClass().getSimpleName() + "{ ID = "   + id
+                                          + ", Room = " + room
+                                          + " }";
     }
 
 }

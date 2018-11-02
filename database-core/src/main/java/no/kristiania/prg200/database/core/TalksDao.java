@@ -43,7 +43,7 @@ public class TalksDao extends AbstractDao implements DataAccessObject<Talks> {
 
     @Override
     public List<Talks> listAll() throws SQLException {
-        return list("select * from talks", this::mapToTalks);
+        return list("SELECT * FROM talks", this::mapToTalks);
     }
 
 
