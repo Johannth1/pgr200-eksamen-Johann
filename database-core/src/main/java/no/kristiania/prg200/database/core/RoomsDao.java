@@ -42,7 +42,8 @@ public class RoomsDao extends AbstractDao implements DataAccessObject<Rooms> {
 
 
     public Rooms mapToRooms(ResultSet rs) throws SQLException{
-        Rooms rooms = new Rooms(1L, "");
+        Tracks tracks = new Tracks(dataSource);
+        Rooms rooms = tracks.createStandardRooms ();
         rooms.setId ( rs.getLong ( "id" ) );
         rooms.setRoom ( rs.getString ( "rooms_room" ) );
         System.out.println(rooms);

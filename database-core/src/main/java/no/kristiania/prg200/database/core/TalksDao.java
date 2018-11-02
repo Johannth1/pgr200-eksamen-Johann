@@ -48,7 +48,8 @@ public class TalksDao extends AbstractDao implements DataAccessObject<Talks> {
 
 
     public Talks mapToTalks(ResultSet rs) throws SQLException{
-        Talks talks = new Talks ();
+        Tracks tracks = new Tracks(dataSource);
+        Talks talks = tracks.createStandardTalks ();
         talks.setId ( rs.getLong ( "id" ) );
         talks.setTitle ( rs.getString ( "talks_title" ) );
         talks.setTopic ( rs.getString ( "talks_topic" ) );

@@ -41,26 +41,48 @@ public class Tracks extends AbstractDao {
         return true;
     }
 
-    public boolean createStandardDays(){
+//    public boolean createStandardDays(){
+////        DaysDao daysDao = new DaysDao(dataSource);
+//        Days days = new Days(randomLong (), randomDays(), randomDates());
+//        daysArrayList.add(days);
+//        //System.out.println(daysArrayList);
+//        return true;
+//    }
+
+    public Days createStandardDays(){
 //        DaysDao daysDao = new DaysDao(dataSource);
         Days days = new Days(randomLong (), randomDays(), randomDates());
         daysArrayList.add(days);
         //System.out.println(daysArrayList);
-        return true;
+        return days;
     }
 
-    public boolean createStandardRooms(){
+//    public boolean createStandardRooms(){
+//        Rooms rooms = new Rooms (randomLong (), randomRooms ());
+//        roomsArrayList.add(rooms);
+//        //System.out.println(roomsArrayList);
+//        return true;
+//    }
+
+    public Rooms createStandardRooms(){
         Rooms rooms = new Rooms (randomLong (), randomRooms ());
         roomsArrayList.add(rooms);
         //System.out.println(roomsArrayList);
-        return true;
+        return rooms;
     }
 
-    public boolean createStandardTalks(){
+//    public boolean createStandardTalks(){
+//        Talks talks = new Talks(randomLong (), randomTitle (), randomDescription (), randomTopic ());
+//        talksArrayList.add(talks);
+//        //System.out.println(talksArrayList);
+//        return true;
+//    }
+
+    public Talks createStandardTalks(){
         Talks talks = new Talks(randomLong (), randomTitle (), randomDescription (), randomTopic ());
         talksArrayList.add(talks);
         //System.out.println(talksArrayList);
-        return true;
+        return talks;
     }
 
 //    public boolean createStandardTimeslots(){
@@ -96,11 +118,11 @@ public class Tracks extends AbstractDao {
         return pickOne ( new String[] {"Dinosaurer i ", "Datamaskiner i ", "Matematikk for ", "", "Velkommen til "});
     }
 
-    private String randomTopic() {
+    private String randomDescription() {
         return pickOne(new String[] {"nåtiden", "gårsdagen", "fremtiden", "barnehagen", "verden"});
     }
 
-    private String randomDescription() {
+    private String randomTopic() {
         return pickOne(new String[] {"En samtale om data.", "Informasjon om tid og rom.", "Mange steder på en gang."});
     }
 

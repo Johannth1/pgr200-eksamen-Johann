@@ -26,7 +26,7 @@ public class Conference {
 
         /*Forsøker å lage et standard-objekt av track og skrive dem ut*/
         Tracks tracks = new Tracks(dataSource);
-        tracks.createStandardTracks ();
+        tracks.createStandardTracks();
 
 //        ArrayList<Tracks> tracksArrayList = new ArrayList<>();
 

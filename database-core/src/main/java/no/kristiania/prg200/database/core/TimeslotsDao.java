@@ -9,6 +9,8 @@ import java.util.List;
 
 public class TimeslotsDao extends AbstractDao implements DataAccessObject<Timeslots> {
 
+    DataSource dataSource;
+
     public TimeslotsDao(DataSource dataSource){
         super (dataSource);
     }
@@ -44,7 +46,8 @@ public class TimeslotsDao extends AbstractDao implements DataAccessObject<Timesl
 
 
     public Timeslots mapToTimeslots(ResultSet rs) throws SQLException{
-        Timeslots timeslots = new Timeslots ();
+        Tracks tracks = new Tracks(dataSource);
+        Timeslots timeslots = tracks.createStandardTimeslots();
         timeslots.setId ( rs.getLong ( "id" ) );
         timeslots.setTime ( rs.getString ( "timeslots_time" ) );
         return timeslots;
