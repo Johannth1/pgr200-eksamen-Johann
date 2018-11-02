@@ -19,8 +19,9 @@ import java.util.Properties;
 public class Conference {
 
     public static void main(String[] args) throws IOException, SQLException {
-        DataSource dataSource = createDataSource();
-        DaysDao daysDao = new DaysDao(dataSource);
+        /*Creates a DBConnection-object that connects us to our DB*/
+        DBConnection dbConnection = new DBConnection ();
+        DataSource dataSource = dbConnection.createDataSource();
         dataSource.getConnection();
 
         /*Forsøker å lage Days-objekter og skrive dem ut*/
@@ -42,27 +43,22 @@ public class Conference {
 
         roomsDao.listAll();
 
+        Days days = new Days(1L, "Mandag", "22.10.2018");
+        Days days1 = new Days(1L, "Mandag", "22.10.2018");
+        Days days2 = new Days(1L, "Mandag", "22.10.2018");
+
+        DaysDao daysDao = new DaysDao(dataSource);
+        daysDao.save(days);
+        daysDao.save(days1);
+        daysDao.save(days2);
+
+        daysDao.listAll ();
+
 
 //        createProperties ();
 //        createProperties2 ();
     }
 
-
-    private static DataSource createDataSource() {
-        PGPoolingDataSource dataSource = new PGPoolingDataSource();
-        dataSource.setURL("jdbc:postgresql://localhost:5433/jdbc_innlevering");
-        //dataSource.setURL("jdbc:postgresql://localhost:5433/postgres");
-        dataSource.setUser("postgres");
-        dataSource.setPassword("root");
-
-        Flyway flyway = new Flyway();
-        flyway.setDataSource(dataSource);
-        flyway.setBaselineOnMigrate(true);
-        flyway.migrate();
-        //flyway.clean();
-
-        return dataSource;
-    }
 
 //    public static Properties createProperties(){
 //        Properties properties = new Properties ();

@@ -48,6 +48,7 @@ public class DaysDao extends AbstractDao implements DataAccessObject<Days> {
         days.setId ( rs.getLong ( "id" ) );
         days.setDays ( rs.getString ( "days_days" ) );
         days.setDate ( rs.getString ( "days_date" ) );
+        System.out.println(days);
         return days;
     }
 
