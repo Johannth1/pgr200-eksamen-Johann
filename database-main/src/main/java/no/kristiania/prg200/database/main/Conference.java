@@ -20,57 +20,28 @@ public class Conference {
 
     public static void main(String[] args) throws IOException, SQLException {
         /*Creates a DBConnection-object that connects us to our DB*/
-        DBConnection dbConnection = new DBConnection ();
+        DBConnection dbConnection = new DBConnection();
         DataSource dataSource = dbConnection.createDataSource();
         dataSource.getConnection();
 
         /*Forsøker å lage et standard-objekt av track og skrive dem ut*/
         Tracks tracks = new Tracks(dataSource);
+//        RandomObject ro = new RandomObject ();
+//        TimeslotsDao timeslotsDao = new TimeslotsDao ( dataSource );
+//        Timeslots timeslots = new Timeslots(ro.randomLong (), ro.randomTime ());
+//        timeslotsDao.save ( timeslots );
+
 //        tracks.createStandardTracks();
-        Tracks test = tracks.createStandardTracks();
-        Tracks test2 = tracks.createStandardTracks ();
-        Tracks test3 = tracks.createStandardTracks ();
-//
-        TracksDao tracksDao = new TracksDao ( dataSource );
-        tracksDao.save(test);
-        tracksDao.save(test2);
-        tracksDao.save(test3);
-        tracksDao.listAll();
+//        Tracks test = tracks.createStandardTracks();
+//        Tracks test2 = tracks.createStandardTracks ();
+//        Tracks test3 = tracks.createStandardTracks ();
+////
+//        TracksDao tracksDao = new TracksDao ( dataSource );
+//        tracksDao.save(test);
+//        tracksDao.save(test2);
+//        tracksDao.save(test3);
+//        tracksDao.listAll();
 
-        //Får feilmelding:
-        //tracksDao.retrieve(tracks.createStandardTracks().getId());
-
-
-        Rooms room = tracks.createStandardRooms ();
-        RoomsDao roomsDao = new RoomsDao ( dataSource );
-        roomsDao.save ( room );
-        roomsDao.listAll ();
-        roomsDao.retrieve (tracks.createStandardRooms().getId());
-
-//        ArrayList<Tracks> tracksArrayList = new ArrayList<>();
-
-        /*Tester ut metodene fra RoomsDao mot selve databasen*/
-//        Rooms rooms = new Rooms(2L, "Rosérommet");
-//        Rooms rooms1 = new Rooms(3L, "Testrom");
-//        Rooms rooms2 = new Rooms(4L, "Himmelsalen");
-//
-//        RoomsDao roomsDao = new RoomsDao(dataSource);
-//        roomsDao.save(rooms);
-//        roomsDao.save(rooms1);
-//        roomsDao.save(rooms2);
-//
-//        roomsDao.listAll();
-//
-//        Days days = new Days(1L, "Mandag", "22.10.2018");
-//        Days days1 = new Days(1L, "Mandag", "22.10.2018");
-//        Days days2 = new Days(1L, "Mandag", "22.10.2018");
-//
-//        DaysDao daysDao = new DaysDao(dataSource);
-//        daysDao.save(days);
-//        daysDao.save(days1);
-//        daysDao.save(days2);
-//
-//        daysDao.listAll ();
 
 
 //        createProperties ();

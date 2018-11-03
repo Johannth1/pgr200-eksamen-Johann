@@ -3,38 +3,26 @@ package no.kristiania.prg200.database.core;
 import org.flywaydb.core.Flyway;
 import org.postgresql.ds.PGPoolingDataSource;
 import javax.sql.DataSource;
-import java.sql.SQLException;
-
 
 /**
  * Creates a connection to our DB.
  *
- * ToDo: legg til å lukke datasourcen til slutt - muligens en type loop eller if/else eller try/catch.
+ * Todo: Få flyway.migration() til å funke.
  */
 
 public class DBConnection {
 
-//    public static void main(String[] args) throws SQLException {
-//        DataSource dataSource = createDataSource();
-//        dataSource.getConnection();
-//    }
+    public static DataSource createDataSource() throws NullPointerException {
+        PGPoolingDataSource dataSource = new PGPoolingDataSource ();
+        dataSource.setURL ( "jdbc:postgresql://localhost:5433/postgres" );
+        dataSource.setUser ( "postgres" );
+        dataSource.setPassword ( "root" );
 
-    public static DataSource createDataSource() {
-        PGPoolingDataSource dataSource = new PGPoolingDataSource();
-        //dataSource.setURL("jdbc:postgresql://localhost:5433/jdbc_innlevering");
-        dataSource.setURL("jdbc:postgresql://localhost:5433/postgres");
-        dataSource.setUser("postgres");
-        dataSource.setPassword("root");
-
-        Flyway flyway = new Flyway();
-        flyway.setDataSource(dataSource);
-        flyway.setBaselineOnMigrate(true);
-
-        //flyway.configure();
-
-
+        Flyway flyway = new Flyway ();
+        flyway.setDataSource ( dataSource );
+        flyway.setBaselineOnMigrate ( true );
         flyway.migrate();
-//        flyway.clean();
+        flyway.clean();
 
         return dataSource;
     }

@@ -4,12 +4,14 @@ import java.sql.Time;
 import java.util.Objects;
 
 public class Timeslots {
-    private String time;
     Long id;
+    private String time;
+
 
     public Timeslots(Long id, String time) {
-        this.time = time;
         this.id = id;
+        this.time = time;
+
     }
 
     public String getTime() {

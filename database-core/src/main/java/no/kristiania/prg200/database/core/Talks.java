@@ -9,10 +9,11 @@ public class Talks {
     private Long id;
 
     public Talks(Long id, String title, String topic, String description) {
+        this.id = id;
         this.title = title;
         this.topic = topic;
         this.description = description;
-        this.id = id;
+
     }
 
 

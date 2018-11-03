@@ -1,32 +1,27 @@
 package no.kristiania.prg200.database.core;
 
 import javax.sql.DataSource;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Random;
 
 /**
  * I denne klassen kobler vi sammen klassene Days + DaysDao, Talks + TalksDao, Rooms + RoomsDao og Timeslots + TimeslotsDao.
  *
- * TODO: Ordne opp i denne klassen så man tar i bruk de andre klassene.
+ * TODO: Fikse timeslotsDao så man kan bruke save-metoden og lagre tilfeldige timeslot-objekter i DBen.
  */
 
 public class Tracks extends AbstractDao {
     Long id = getId ();
     String tracks;
-/*    ArrayList<Days> daysArrayList;
-    ArrayList<Rooms> roomsArrayList;
-    ArrayList<Talks> talksArrayList;
-    ArrayList<Timeslots> timeslotsArrayList;*/
 
-    Random random = new Random();
+    //Random random = new Random();
+    RandomObject randomObject = new RandomObject ();
 
 
     public Tracks(DataSource dataSource){
         super(dataSource);
-/*        daysArrayList = new ArrayList<>();
-        roomsArrayList = new ArrayList<>();
-        talksArrayList = new ArrayList<>();
-        timeslotsArrayList = new ArrayList<>();*/
+        id = randomObject.randomLong ();
     }
 
     public Long getId() {
@@ -45,103 +40,59 @@ public class Tracks extends AbstractDao {
         this.tracks = tracks;
     }
 
-    public Tracks createStandardTracks(){
+    public Tracks createStandardTracks() throws SQLException {
         Tracks tracks = new Tracks(dataSource);
         //tracks.setId(randomLong());
-        tracks.setTracks(randomTracks());
+        tracks.setTracks(randomObject.randomTracks());
         createStandardDays();
         createStandardRooms();
         createStandardTalks();
         createStandardTimeslots();
 
-//        System.out.println(daysArrayList  + "\n"
-//                         + roomsArrayList + "\n"
-//                         + talksArrayList + "\n"
-//                         + timeslotsArrayList);
         return tracks;
     }
 
-    public Days createStandardDays(){
+    public Days createStandardDays() throws SQLException {
 //        DaysDao daysDao = new DaysDao(dataSource);
-        Days days = new Days(randomLong (), randomDays(), randomDates());
+        Days days = new Days(randomObject.randomLong(), randomObject.randomDays(), randomObject.randomDates());
+        DaysDao daysDao = new DaysDao ( dataSource );
+        daysDao.save ( days );
         //daysArrayList.add(days);
         //System.out.println(daysArrayList);
         return days;
     }
 
-    public Rooms createStandardRooms(){
-        Rooms rooms = new Rooms (randomLong (), randomRooms ());
+    public Rooms createStandardRooms() throws SQLException {
+        Rooms rooms = new Rooms (randomObject.randomLong (), randomObject.randomRooms ());
+        RoomsDao roomsDao = new RoomsDao ( dataSource );
+        roomsDao.save ( rooms );
         //roomsArrayList.add(rooms);
         //System.out.println(roomsArrayList);
         return rooms;
     }
 
-    public Talks createStandardTalks(){
-        Talks talks = new Talks(randomLong (), randomTitle (), randomDescription (), randomTopic ());
+    public Talks createStandardTalks() throws SQLException {
+        Talks talks = new Talks(randomObject.randomLong (), randomObject.randomTitle (), randomObject.randomDescription (), randomObject.randomTopic ());
+        TalksDao talksDao = new TalksDao ( dataSource );
+        talksDao.save ( talks );
         //talksArrayList.add(talks);
         //System.out.println(talksArrayList);
         return talks;
     }
 
-    public Timeslots createStandardTimeslots(){
-        Timeslots timeslots = new Timeslots(randomLong(), randomTime ());
+    public Timeslots createStandardTimeslots() throws SQLException {
+        Timeslots timeslots = new Timeslots(randomObject.randomLong(), randomObject.randomTime ());
+        TimeslotsDao timeslotsDao = new TimeslotsDao ( dataSource );
+//        timeslotsDao.save ( timeslots );
         //timeslotsArrayList.add(timeslots);
         //System.out.println(timeslotsArrayList);
         System.out.println(toString());
         return timeslots;
     }
 
-    private Long randomLong(){
-        return pickOneLong(new Long[] {1L, 2L, 3L, 4L, 5L, 6L, 7L, 8L, 9L, 10L});
-    }
-
-    private String randomDays(){
-        return pickOne(new String[] {"Mandag", "Tirsdag", "Onsdag", "Torsdag", "Fredag"});
-    }
-    private String randomDates() {
-        return pickOne ( new String[] {"01.10.2018", "07.10.2018", "22.10.2018", "01.11.2018", "03.11.2018"});
-    }
-
-    private String randomRooms(){
-        return pickOne(new String[]{"Svane-salen", "Heisrommet", "Drømmerommet", "Vandresalen", "Klasserommet", "Festsalen", "Konferansesalen", "Grupperom 1"});
-    }
-
-    private String randomTitle() {
-        return pickOne ( new String[] {"Dinosaurer i ", "Datamaskiner i ", "Matematikk for ", "", "Velkommen til "});
-    }
-
-    private String randomDescription() {
-        return pickOne(new String[] {"nåtiden", "gårsdagen", "fremtiden", "barnehagen", "verden"});
-    }
-
-    private String randomTopic() {
-        return pickOne(new String[] {"En samtale om data.", "Informasjon om tid og rom.", "Mange steder på en gang."});
-    }
-
-    private String randomTime(){
-        return pickOne ( new String[] {"08.00-09.00", "11.00-14.15", "10.00-13.00", "", "16.30-18.00"});
-    }
-
-    private String randomTracks(){
-        return pickOne ( new String[]{"Forelesning 1", "Forelesning 2", "Samtale", "Track 20"} );
-    }
-
-    private String pickOne(String[] strings) {
-        return strings[random.nextInt(strings.length)];
-    }
-
-    private Long pickOneLong(Long[] longs) {
-        return longs[random.nextInt(longs.length)];
-    }
-
-    /*@Override
+    @Override
     public String toString() {
-        return getClass().getSimpleName() + "{ ID = "      + id
-                                          + ", Day = "     + daysArrayList
-                                          + ", Room = "    + roomsArrayList
-                                          + ", Talks ="    + talksArrayList
-                                          + ", Timeslot =" + timeslotsArrayList
-                                          + " }";
-    }*/
+        return "Tracks { ID = '" + id + "' tracks = '" + tracks + "' }";
+    }
 }
 
