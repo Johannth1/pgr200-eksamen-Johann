@@ -28,10 +28,24 @@ public class Conference {
         Tracks tracks = new Tracks(dataSource);
 //        tracks.createStandardTracks();
         Tracks test = tracks.createStandardTracks();
+        Tracks test2 = tracks.createStandardTracks ();
+        Tracks test3 = tracks.createStandardTracks ();
 //
         TracksDao tracksDao = new TracksDao ( dataSource );
         tracksDao.save(test);
+        tracksDao.save(test2);
+        tracksDao.save(test3);
+        tracksDao.listAll();
 
+        //Får feilmelding:
+        //tracksDao.retrieve(tracks.createStandardTracks().getId());
+
+
+        Rooms room = tracks.createStandardRooms ();
+        RoomsDao roomsDao = new RoomsDao ( dataSource );
+        roomsDao.save ( room );
+        roomsDao.listAll ();
+        roomsDao.retrieve (tracks.createStandardRooms().getId());
 
 //        ArrayList<Tracks> tracksArrayList = new ArrayList<>();
 
