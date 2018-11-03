@@ -19,8 +19,8 @@ public class DBConnection {
 
     public static DataSource createDataSource() {
         PGPoolingDataSource dataSource = new PGPoolingDataSource();
-        dataSource.setURL("jdbc:postgresql://localhost:5433/jdbc_innlevering");
-        //dataSource.setURL("jdbc:postgresql://localhost:5433/postgres");
+        //dataSource.setURL("jdbc:postgresql://localhost:5433/jdbc_innlevering");
+        dataSource.setURL("jdbc:postgresql://localhost:5433/postgres");
         dataSource.setUser("postgres");
         dataSource.setPassword("root");
 
