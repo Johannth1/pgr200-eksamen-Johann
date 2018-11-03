@@ -8,6 +8,8 @@ import java.sql.SQLException;
 
 /**
  * Creates a connection to our DB.
+ *
+ * ToDo: legg til å lukke datasourcen til slutt - muligens en type loop eller if/else eller try/catch.
  */
 
 public class DBConnection {

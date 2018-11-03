@@ -136,10 +136,10 @@ public class Tracks extends AbstractDao {
 
     /*@Override
     public String toString() {
-        return getClass().getSimpleName() + "{ ID = "      + id                 + "\n"
-                                          + ", Day = "     + daysArrayList      + "\n"
-                                          + ", Room = "    + roomsArrayList     + "\n"
-                                          + ", Talks ="    + talksArrayList     + "\n"
+        return getClass().getSimpleName() + "{ ID = "      + id
+                                          + ", Day = "     + daysArrayList
+                                          + ", Room = "    + roomsArrayList
+                                          + ", Talks ="    + talksArrayList
                                           + ", Timeslot =" + timeslotsArrayList
                                           + " }";
     }*/

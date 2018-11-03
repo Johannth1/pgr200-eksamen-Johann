@@ -39,7 +39,7 @@ public class DaysDao extends AbstractDao implements DataAccessObject<Days> {
 
     @Override
     public List<Days> listAll() throws SQLException {
-        return list("select * from days", this::mapToDays);
+        return list("SELECT * FROM days", this::mapToDays);
     }
 
 
