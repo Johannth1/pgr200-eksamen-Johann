@@ -4,6 +4,7 @@ import org.flywaydb.core.Flyway;
 import org.postgresql.ds.PGPoolingDataSource;
 import javax.sql.DataSource;
 
+
 /**
  * Creates a connection to our DB.
  *
@@ -26,4 +27,5 @@ public class DBConnection {
 
         return dataSource;
     }
+
 }

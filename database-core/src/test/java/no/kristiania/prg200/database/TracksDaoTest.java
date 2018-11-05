@@ -9,6 +9,10 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.util.Random;
 
+/**
+ * Todo: få denne test-klassen opp og gå.
+ */
+
 public class TracksDaoTest {
 //
 //
