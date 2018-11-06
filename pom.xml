@@ -18,6 +18,8 @@
     </build>
     <modules>
         <module>HttpServer</module>
+        <module>DatabaseCore</module>
+        <module>DatabaseMain</module>
     </modules>
     <dependencies>
         <dependency>

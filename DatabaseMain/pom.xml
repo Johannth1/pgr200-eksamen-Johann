@@ -1,0 +1,62 @@
+<!--<?xml version="1.0" encoding="UTF-8"?>-->
+<!--<project xmlns="http://maven.apache.org/POM/4.0.0"-->
+         <!--xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"-->
+         <!--xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">-->
+    <!--<parent>-->
+        <!--<artifactId>pgr200-innlevering-starter</artifactId>-->
+        <!--<groupId>no.kristiania.pgr200</groupId>-->
+        <!--<version>0.0.1-SNAPSHOT</version>-->
+    <!--</parent>-->
+    <!--<modelVersion>4.0.0</modelVersion>-->
+
+    <!--<artifactId>DatabaseMain</artifactId>-->
+
+
+<!--</project>-->
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <artifactId>database-main</artifactId>
+    <parent>
+        <groupId>no.kristiania.pgr200</groupId>
+        <artifactId>database</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
+    </parent>
+
+    <dependencies>
+        <dependency>
+            <groupId>no.kristiania.pgr200</groupId>
+            <artifactId>database-core</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.logevents</groupId>
+            <artifactId>logevents</artifactId>
+            <version>0.1.5</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <artifactId>maven-shade-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>shade</goal>
+                        </goals>
+                        <phase>package</phase>
+                    </execution>
+                </executions>
+                <configuration>
+                    <transformers>
+                        <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+                            <mainClass>no.kristiania.prg200.database.main.Conference</mainClass>
+                        </transformer>
+                    </transformers>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>
