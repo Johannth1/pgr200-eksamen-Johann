@@ -2,7 +2,8 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>no.kristiania.pgr200</groupId>
   <artifactId>pgr200-innlevering-starter</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
+    <packaging>pom</packaging>
+    <version>0.0.1-SNAPSHOT</version>
     <build>
         <plugins>
             <plugin>
@@ -15,6 +16,9 @@
             </plugin>
         </plugins>
     </build>
+    <modules>
+        <module>HttpServer</module>
+    </modules>
     <dependencies>
         <dependency>
             <groupId>junit</groupId>

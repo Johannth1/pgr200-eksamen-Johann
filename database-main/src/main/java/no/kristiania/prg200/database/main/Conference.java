@@ -31,15 +31,15 @@ public class Conference {
 //        Timeslots timeslots = new Timeslots(ro.randomLong (), ro.randomTime ());
 //        timeslotsDao.save ( timeslots );
 
-//        tracks.createStandardTracks();
-//        Tracks test = tracks.createStandardTracks();
-//        Tracks test2 = tracks.createStandardTracks ();
-//        Tracks test3 = tracks.createStandardTracks ();
-////
-//        TracksDao tracksDao = new TracksDao ( dataSource );
-//        tracksDao.save(test);
-//        tracksDao.save(test2);
-//        tracksDao.save(test3);
+        tracks.createStandardTracks();
+        Tracks test = tracks.createStandardTracks();
+        Tracks test2 = tracks.createStandardTracks ();
+        Tracks test3 = tracks.createStandardTracks ();
+//
+        TracksDao tracksDao = new TracksDao ( dataSource );
+        tracksDao.save(test);
+        tracksDao.save(test2);
+        tracksDao.save(test3);
 //        tracksDao.listAll();
 
 
