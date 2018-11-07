@@ -16,6 +16,13 @@ public class Talks {
 
     }
 
+    public Talks() {
+        this.id = id;
+        this.title = title;
+        this.topic = topic;
+        this.description = description;
+    }
+
 
     public String getTitle() {
         return title;

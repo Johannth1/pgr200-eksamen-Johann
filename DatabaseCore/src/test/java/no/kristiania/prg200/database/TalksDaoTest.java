@@ -3,7 +3,11 @@ package no.kristiania.prg200.database;
 
 import no.kristiania.prg200.database.core.Talks;
 import no.kristiania.prg200.database.core.TalksDao;
+import no.kristiania.prg200.database.core.Tracks;
 import org.junit.Test;
+
+import javax.sql.DataSource;
+
 import static org.assertj.core.api.Assertions.assertThat;
 
 import java.io.IOException;
@@ -42,7 +46,7 @@ public class TalksDaoTest {
         assertThat(talksDao.listAll().contains(talks));
     }
 
-    private Talks sampleTalks() {
+    private Talks sampleTalks() throws SQLException{
         Talks talks = new Talks();
         talks.setTitle(randomTitle());
         talks.setTopic(randomTopic());

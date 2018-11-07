@@ -14,6 +14,11 @@ public class Timeslots {
 
     }
 
+    public Timeslots() {
+        this.id = id;
+        this.time = time;
+    }
+
     public String getTime() {
         return time;
     }
