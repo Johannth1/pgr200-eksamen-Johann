@@ -9,7 +9,6 @@ import java.util.List;
 
 public class TimeslotsDao extends AbstractDao implements DataAccessObject<Timeslots> {
 
-    DataSource dataSource;
 
     public TimeslotsDao(DataSource dataSource){
         super (dataSource);
