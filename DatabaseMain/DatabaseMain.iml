@@ -11,7 +11,7 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="Maven: no.kristiania.pgr200:database-core:0.0.1-SNAPSHOT" level="project" />
+    <orderEntry type="module" module-name="DatabaseCore" />
     <orderEntry type="library" name="Maven: org.logevents:logevents:0.1.5" level="project" />
     <orderEntry type="library" name="Maven: org.slf4j:slf4j-api:1.7.25" level="project" />
     <orderEntry type="library" name="Maven: junit:junit:4.12" level="project" />
