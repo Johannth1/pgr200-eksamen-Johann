@@ -24,6 +24,7 @@ public class Tracks extends AbstractDao {
         id = randomObject.randomLong ();
     }
 
+
     public Long getId() {
         return id;
     }
