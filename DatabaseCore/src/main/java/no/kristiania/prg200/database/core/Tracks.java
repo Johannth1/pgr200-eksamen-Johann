@@ -6,9 +6,9 @@ import java.util.ArrayList;
 import java.util.Random;
 
 /**
- * I denne klassen kobler vi sammen klassene Days + DaysDao, Talks + TalksDao, Rooms + RoomsDao og Timeslots + TimeslotsDao.
+ * I denne klassen kobler vi sammen Days, Talks, Rooms og Timeslots.
  *
- * TODO: Fikse timeslotsDao så man kan bruke save-metoden og lagre tilfeldige timeslot-objekter i DBen.
+ * TODO: Fikse timeslotsDao så man kan bruke save-metoden og lagre tilfeldige timeslot-objekter i DB'en.
  */
 
 public class Tracks extends AbstractDao {
