@@ -8,7 +8,7 @@ import javax.sql.DataSource;
 /**
  * Creates a connection to our DB.
  *
- * Todo: Få flyway.migration() til å funke.
+ * Todo: flyway.migration() + flyway.clean()
  */
 
 public class DBConnection {
@@ -23,7 +23,7 @@ public class DBConnection {
         flyway.setDataSource ( dataSource );
         flyway.setBaselineOnMigrate ( true );
         flyway.migrate();
-        flyway.clean();
+        //flyway.clean();
 
         return dataSource;
     }

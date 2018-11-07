@@ -44,7 +44,7 @@ public class Tracks extends AbstractDao {
         Tracks tracks = new Tracks(dataSource);
         //tracks.setId(randomLong());
         tracks.setTracks(randomObject.randomTracks());
-        createStandardDays();
+        //createStandardDays();
         createStandardRooms();
         createStandardTalks();
         createStandardTimeslots();
@@ -83,7 +83,7 @@ public class Tracks extends AbstractDao {
     public Timeslots createStandardTimeslots() throws SQLException {
         Timeslots timeslots = new Timeslots(randomObject.randomLong(), randomObject.randomTime ());
         TimeslotsDao timeslotsDao = new TimeslotsDao ( dataSource );
-//        timeslotsDao.save ( timeslots );
+        timeslotsDao.save ( timeslots );
         //timeslotsArrayList.add(timeslots);
         //System.out.println(timeslotsArrayList);
         System.out.println(toString());

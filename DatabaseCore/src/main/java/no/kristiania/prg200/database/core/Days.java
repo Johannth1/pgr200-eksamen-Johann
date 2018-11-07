@@ -14,6 +14,11 @@ public class Days {
         this.days = days;
         this.date = date;
     }
+    public Days(){
+        this.id = id;
+        this.days = days;
+        this.date = date;
+    }
 
 
 

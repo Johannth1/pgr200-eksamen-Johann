@@ -43,29 +43,7 @@ public class Conference {
 //        tracksDao.listAll();
 
 
-
-//        createProperties ();
-//        createProperties2 ();
     }
 
-
-//    public static Properties createProperties(){
-//        Properties properties = new Properties ();
-//        try ( FileReader reader = new FileReader("innlevering.properties")) {
-//            properties.load(reader);
-//        } catch (IOException e){
-//            System.out.println (e.getMessage ());
-//        }
-//        return properties;
-//    }
-//
-//    public static void createProperties2(){
-//        Properties properties = new Properties ();
-//        try ( FileReader reader = new FileReader("innlevering.properties") ) {
-//            properties.load(reader);
-//        } catch (IOException e){
-//            System.out.println (e.getMessage ());
-//        }
-//    }
 
 }
