@@ -11,7 +11,6 @@ public class HttpRequest {
     private int port;
     private String requestTarget;
     private String method = "GET";
-    private HttpHeader httpHeaders;
     private String body;
     private HttpHeader httpHeader;
 
@@ -19,7 +18,7 @@ public class HttpRequest {
         this.hostname = hostname;
         this.port = port;
         this.requestTarget = requestTarget;
-        this.httpHeaders = new HttpHeader()
+        this.httpHeader = new HttpHeader()
                 .put("Connection", "close")
                 .put("Host", hostname);
     }
@@ -54,6 +53,6 @@ public class HttpRequest {
 
     public void setFormBody(HttpQuery query) {
         this.body = query.toString();
-        httpHeaders.put("Content-type", "application/x-www-form-urlencoded");
+        httpHeader.put("Content-type", "application/x-www-form-urlencoded");
     }
 }

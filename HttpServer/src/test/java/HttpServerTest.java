@@ -5,7 +5,6 @@ import no.kristiania.prg200.HttpRequest;
 import no.kristiania.prg200.HttpResponse;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import no.kristiania.*;
 
 import java.io.IOException;
 
