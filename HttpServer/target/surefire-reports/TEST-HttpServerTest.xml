@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="6" failures="0" name="HttpServerTest" time="0.16" errors="0" skipped="0">
+<testsuite tests="6" failures="0" name="HttpServerTest" time="0.078" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="java.vm.version" value="10+46"/>
@@ -45,7 +45,7 @@
     <property name="java.class.path" value="/usr/local/Cellar/maven/3.5.4/libexec/boot/plexus-classworlds-2.5.2.jar"/>
     <property name="java.vm.specification.version" value="10"/>
     <property name="sun.arch.data.model" value="64"/>
-    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher test"/>
+    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher package"/>
     <property name="java.home" value="/Library/Java/JavaVirtualMachines/jdk-10.jdk/Contents/Home"/>
     <property name="user.language" value="nb"/>
     <property name="java.specification.vendor" value="Oracle Corporation"/>
@@ -62,10 +62,10 @@
     <property name="java.vendor.version" value="18.3"/>
     <property name="sun.cpu.isalist" value=""/>
   </properties>
-  <testcase classname="HttpServerTest" name="shouldReadBody" time="0.027"/>
-  <testcase classname="HttpServerTest" name="shouldPerformeHttpRequest" time="0.014"/>
-  <testcase classname="HttpServerTest" name="shouldSetStatusLine" time="0.016"/>
-  <testcase classname="HttpServerTest" name="shouldPostData" time="0.046"/>
-  <testcase classname="HttpServerTest" name="shouldReturn500ForPostWithoutData" time="0.008"/>
-  <testcase classname="HttpServerTest" name="shouldParseHeaders" time="0.049"/>
+  <testcase classname="HttpServerTest" name="shouldReadBody" time="0.028"/>
+  <testcase classname="HttpServerTest" name="shouldPerformeHttpRequest" time="0.02"/>
+  <testcase classname="HttpServerTest" name="shouldSetStatusLine" time="0.008"/>
+  <testcase classname="HttpServerTest" name="shouldPostData" time="0.008"/>
+  <testcase classname="HttpServerTest" name="shouldReturn500ForPostWithoutData" time="0.009"/>
+  <testcase classname="HttpServerTest" name="shouldParseHeaders" time="0.005"/>
 </testsuite>

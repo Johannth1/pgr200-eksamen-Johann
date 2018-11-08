@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: no.kristiania.prg200.database.TalksDaoTest
 -------------------------------------------------------------------------------
-Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.371 sec
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.2 sec

@@ -24,24 +24,30 @@ public class Conference {
         DataSource dataSource = dbConnection.createDataSource();
         dataSource.getConnection();
 
-        /*Forsøker å lage et standard-objekt av track og skrive dem ut*/
-        Tracks tracks = new Tracks(dataSource);
-//        RandomObject ro = new RandomObject ();
-//        TimeslotsDao timeslotsDao = new TimeslotsDao ( dataSource );
-//        Timeslots timeslots = new Timeslots(ro.randomLong (), ro.randomTime ());
-//        timeslotsDao.save ( timeslots );
-
-        tracks.createStandardTracks();
-        Tracks test = tracks.createStandardTracks();
-        Tracks test2 = tracks.createStandardTracks ();
-        Tracks test3 = tracks.createStandardTracks ();
+//        /*Forsøker å lage et standard-objekt av track og skrive dem ut*/
+//        Tracks tracks = new Tracks(dataSource);
+////        RandomObject ro = new RandomObject ();
+////        TimeslotsDao timeslotsDao = new TimeslotsDao ( dataSource );
+////        Timeslots timeslots = new Timeslots(ro.randomLong (), ro.randomTime ());
+////        timeslotsDao.save ( timeslots );
 //
-        TracksDao tracksDao = new TracksDao ( dataSource );
-        tracksDao.save(test);
-        tracksDao.save(test2);
-        tracksDao.save(test3);
-//        tracksDao.listAll();
+//        tracks.createStandardTracks();
+//        Tracks test = tracks.createStandardTracks();
+//        Tracks test2 = tracks.createStandardTracks ();
+//        Tracks test3 = tracks.createStandardTracks ();
+////
+//        TracksDao tracksDao = new TracksDao ( dataSource );
+//        tracksDao.save(test);
+//        tracksDao.save(test2);
+//        tracksDao.save(test3);
+////        tracksDao.listAll();
 
+
+        Properties properties = new Properties ();
+        try ( FileReader reader = new FileReader("DatabaseMain/innlevering.properties") ) {
+            properties.load(reader);
+            //properties.setProperty();
+        }
 
     }
 
