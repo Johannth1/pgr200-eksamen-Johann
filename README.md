@@ -85,11 +85,11 @@ I tilbakemeldingen er det lurt å stille spørsmålene: 1. Hva lærte jeg av den
 
 - [ ] Kodekvalitet
   - [x] Koden er klonet fra GitHub classrom
-  - [ ] Produserer `mvn package` en executable jar? (tips: Bruk `maven-shade-plugin`)
-  - [ ] Bruker koden Java 8 og UTF-8
-  - [ ] Bygger prosjektet på [https://travis-ci.com](https://travis-ci.com)?
+  - [x] Produserer `mvn package` en executable jar? (tips: Bruk `maven-shade-plugin`)
+  - [x] Bruker koden Java 8 og UTF-8
+  - [x] Bygger prosjektet på [https://travis-ci.com](https://travis-ci.com)?
   - [ ] Har du god test-dekning? (tips: Sett opp jacoco-maven-plugin til å kreve at minst 65% av linjene har testdekning)
-  - [ ] Er koden delt inn i flere Maven `<modules>`?
+  - [x] Er koden delt inn i flere Maven `<modules>`?
   - [ ] Bruker kommunikasjon mellom klient og server HTTP korrekt?
   - [ ] Kobler serveren seg opp mot PostgreSQL ved hjelp av konfigurasjon i fila `innlevering.properties` i *current working directory* med `dataSource.url`, `dataSource.username`, `dataSource.password`?
 - [ ] Funksjonalitet
@@ -110,7 +110,7 @@ I tilbakemeldingen er det lurt å stille spørsmålene: 1. Hva lærte jeg av den
 
 ### Forberedelse
 
-- [ ] Finn endelig grupperpartner innen 1. november
+- [x] Finn endelig grupperpartner innen 1. november
 - [ ] Finn en gruppe for gjensidig evaluering innen 1. november
 
 ### Innlevering
