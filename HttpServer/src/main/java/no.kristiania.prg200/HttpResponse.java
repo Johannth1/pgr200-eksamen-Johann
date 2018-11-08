@@ -26,4 +26,15 @@ public class HttpResponse {
         return statusCode;
     }
 
+    public String getStatusText() {
+        return statusText;
+    }
+
+    public String getHeader(String key) {
+        return responseHeader.get(key);
+    }
+
+    public String getBody() {
+        return body;
+    }
 }

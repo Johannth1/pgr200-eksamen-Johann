@@ -25,7 +25,7 @@ public class HttpRequest {
     }
 
     public static void main(String[] args) throws IOException {
-        new HttpRequest("urlecho.appspot.com", 80, "/echo").execute();
+        new HttpRequest("localhost", 80, "/echo").execute();
     }
 
     public HttpResponse execute() throws IOException{
@@ -46,5 +46,14 @@ public class HttpRequest {
 
     private void writeRequestLine(Socket socket) throws IOException {
         HttpIO.writeLine(socket.getOutputStream(), method + " " + requestTarget + " HTTP/1.1");
+    }
+
+    public void setMethod(String method) {
+        this.method = method;
+    }
+
+    public void setFormBody(HttpQuery query) {
+        this.body = query.toString();
+        httpHeaders.put("Content-type", "application/x-www-form-urlencoded");
     }
 }
