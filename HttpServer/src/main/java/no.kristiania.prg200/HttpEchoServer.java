@@ -17,7 +17,7 @@ public class HttpEchoServer {
     }
 
     public static void main(String[] args) throws IOException {
-        new HttpEchoServer(10080);
+        new HttpEchoServer(10081);
     }
 
     private void runServerThread() {

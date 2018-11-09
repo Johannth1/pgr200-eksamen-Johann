@@ -8,6 +8,7 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -21,14 +22,14 @@ public class HttpServerTest {
     }
 
     @Test
-    public void shouldPerformeHttpRequest() throws IOException {
+    public void shouldPerformeHttpRequest() throws IOException, SQLException {
         HttpRequest httpRequest = new HttpRequest ("localhost", server.getPort (), "/echo");
         HttpResponse httpResponse = httpRequest.execute();
         assertThat(httpResponse.getStatusCode()).isEqualTo(200);
     }
 
     @Test
-    public void shouldSetStatusLine() throws IOException {
+    public void shouldSetStatusLine() throws IOException,  SQLException{
         HttpRequest request = new HttpRequest("localhost", server.getPort(), "/echo?status=404");
         HttpResponse response = request.execute();
         assertThat(response.getStatusCode()).isEqualTo(404);
@@ -36,7 +37,7 @@ public class HttpServerTest {
     }
 
     @Test
-    public void shouldParseHeaders() throws IOException {
+    public void shouldParseHeaders() throws IOException, SQLException {
         HttpRequest request = new HttpRequest("localhost", server.getPort(),
                 "/echo?Location=http%3A%2F%2Fwww.google.com");
         HttpResponse response = request.execute();
@@ -44,7 +45,7 @@ public class HttpServerTest {
     }
 
     @Test
-    public void shouldReadBody() throws IOException {
+    public void shouldReadBody() throws IOException, SQLException {
         HttpRequest request = new HttpRequest("localhost", server.getPort(),
                 "/echo?body=hello+world");
         HttpResponse response = request.execute();
@@ -53,7 +54,7 @@ public class HttpServerTest {
 
 
     @Test
-    public void shouldPostData() throws IOException {
+    public void shouldPostData() throws IOException, SQLException {
         HttpRequest request = new HttpRequest("localhost", server.getPort(),
                 "/echo");
         request.setMethod("POST");
@@ -63,7 +64,7 @@ public class HttpServerTest {
     }
 
     @Test
-    public void shouldReturn500ForPostWithoutData() throws IOException {
+    public void shouldReturn500ForPostWithoutData() throws IOException, SQLException {
         HttpRequest request = new HttpRequest("localhost", server.getPort(),
                 "/echo");
         request.setMethod("POST");

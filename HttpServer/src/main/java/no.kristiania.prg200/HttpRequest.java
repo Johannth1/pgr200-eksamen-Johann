@@ -5,6 +5,7 @@ import org.postgresql.shaded.com.ongres.scram.common.ScramAttributeValue;
 import java.io.IOException;
 import java.net.Socket;
 import java.net.UnknownHostException;
+import java.sql.SQLException;
 
 public class HttpRequest {
     private String hostname;
@@ -23,11 +24,18 @@ public class HttpRequest {
                 .put("Host", hostname);
     }
 
-    public static void main(String[] args) throws IOException {
-        new HttpRequest("localhost", 10080, "/echo").execute();
+    public static void main(String[] args) {
+        try {
+            new HttpRequest ( "localhost", 10081, "/echo" ).execute ();
+            System.out.println ("You are connected!");
+        } catch (IOException e){
+            System.err.println ("Error getting a http-connection: " + e.getMessage () + ", Cause of error: " + e.getCause ());
+        } catch (SQLException e){
+            System.out.println ("SQLException: " + e.getMessage ());
+        }
     }
 
-    public HttpResponse execute() throws IOException{
+    public HttpResponse execute() throws IOException, SQLException {
         try (Socket socket = new Socket(hostname, port)) {
             writeRequestLine(socket);
 
@@ -43,7 +51,7 @@ public class HttpRequest {
 
     }
 
-    private void writeRequestLine(Socket socket) throws IOException {
+    public void writeRequestLine(Socket socket) throws IOException {
         HttpIO.writeLine(socket.getOutputStream(), method + " " + requestTarget + " HTTP/1.1");
     }
 
