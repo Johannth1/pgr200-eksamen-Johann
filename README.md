@@ -111,7 +111,7 @@ I tilbakemeldingen er det lurt å stille spørsmålene: 1. Hva lærte jeg av den
 ### Forberedelse
 
 - [x] Finn endelig grupperpartner innen 1. november
-- [ ] Finn en gruppe for gjensidig evaluering innen 1. november
+- [x] Finn en gruppe for gjensidig evaluering innen 1. november
 
 ### Innlevering
 

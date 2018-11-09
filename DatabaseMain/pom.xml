@@ -35,6 +35,18 @@
             <artifactId>logevents</artifactId>
             <version>0.1.5</version>
         </dependency>
+        <dependency>
+            <groupId>no.kristiania.pgr200</groupId>
+            <artifactId>HttpServer</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+            <scope>compile</scope>
+        </dependency>
+        <!--<dependency>
+            <groupId>no.kristiania.pgr200</groupId>
+            <artifactId>HttpServer</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+            <scope>compile</scope>
+        </dependency>-->
     </dependencies>
 
     <build>

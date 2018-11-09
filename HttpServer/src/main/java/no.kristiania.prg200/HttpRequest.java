@@ -24,7 +24,7 @@ public class HttpRequest {
     }
 
     public static void main(String[] args) throws IOException {
-        new HttpRequest("localhost", 80, "/echo").execute();
+        new HttpRequest("localhost", 10080, "/echo").execute();
     }
 
     public HttpResponse execute() throws IOException{
