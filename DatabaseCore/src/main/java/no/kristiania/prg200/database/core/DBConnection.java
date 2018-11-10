@@ -28,10 +28,10 @@ public class DBConnection {
 
     public static DataSource createDataSource() throws NullPointerException, IOException {
         PGPoolingDataSource dataSource = new PGPoolingDataSource ();
-        dataSource.setURL (prop.getProperty ( "jdbc:postgresql://localhost:5433/postgres"));
+/*        dataSource.setURL (prop.getProperty ( "jdbc:postgresql://localhost:5433/postgres"));
         dataSource.setUser ( prop.getProperty ( "postgres" ) );
-        dataSource.setPassword ( prop.getProperty ( "root" ) );
-        //configureFlyway ();
+        dataSource.setPassword ( prop.getProperty ( "root" ) );*/
+        configureFlyway ();
         return dataSource;
     }
 
@@ -47,6 +47,7 @@ public class DBConnection {
                 try {
                     input.close ();
                 } catch (IOException io) {
+                    System.out.println ("Error: ");
                     io.printStackTrace ();
                 }
             }

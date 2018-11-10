@@ -18,32 +18,13 @@ public class Conference {
         //Properties prop = null;
         DBConnection dbConnection = new DBConnection();
         DataSource dataSource = dbConnection.createDataSource();
+
         //DataSource dataSource = dbConnection.createDataSource( prop );
         dataSource.getConnection();
 //     configureFlyway ();
 
         //HttpEchoServer echoServer = new HttpEchoServer ( 5433 );
         //echoServer.main ( args );
-
-
-
-        }
-
-//    public static Flyway configureFlyway() throws IOException{
-//        Properties properties = new Properties (  );
-//        InputStream inputStream = null;
-//
-//        inputStream = new FileInputStream ( "DatabaseMain/innlevering.properties" );
-//        properties.load ( inputStream );
-//
-//        Flyway flyway = Flyway.configure()
-//                .dataSource(
-//                        properties.getProperty ( "url" ),
-//                        properties.getProperty ( "username" ),
-//                        properties.getProperty ( "password" )
-//                ).load();
-//        return flyway;
-//    }
 
 //        /*Forsøker å lage et standard-objekt av track og skrive dem ut*/
 //        Tracks tracks = new Tracks(dataSource);
@@ -64,15 +45,9 @@ public class Conference {
 ////        tracksDao.listAll();
 
 
-/*        Properties properties = new Properties ();
-        try ( FileReader reader = new FileReader("DatabaseMain/innlevering.properties") ) {
-            properties.load(reader);
-            //properties.setProperty()
 
-            HttpEchoServer server = new HttpEchoServer();*/
-//        }
-//
-//    }
+
+    }
 
 
 }
