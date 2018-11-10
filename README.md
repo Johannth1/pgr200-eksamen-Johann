@@ -50,5 +50,8 @@ https://youtu.be/fuXUXFP1mjU
 ----------------
 
 ###Kommentarer til selve koden
+
 Flertallsnavn på klasser: Vi er klar over at det er foretrukket praksis å skulle lage klasser med entallsnavn heller enn flertallsnavn, men det var noe vi hadde glemt da vi startet prosjektet.
 Så hvis vi ikke har rettet opp i navngivningen innen mappen blir levert inn, er det rett og slett fordi vi heller har måttet prioritere annen funksjonalitet i koden.
+
+----------------
