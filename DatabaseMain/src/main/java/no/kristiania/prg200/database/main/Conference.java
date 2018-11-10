@@ -1,21 +1,13 @@
 package no.kristiania.prg200.database.main;
 
-import no.kristiania.prg200.database.*;
-
 import no.kristiania.prg200.database.core.*;
-import no.kristiania.prg200.*;
 import org.flywaydb.core.Flyway;
-import org.postgresql.ds.PGPoolingDataSource;
-import org.xml.sax.ext.Locator2;
 
 import javax.sql.DataSource;
 import java.io.FileInputStream;
-import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
-import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.Properties;
 
 
@@ -23,9 +15,11 @@ public class Conference {
 
     public static void main(String[] args) throws IOException, SQLException {
         /*Creates a DBConnection-object that connects us to our DB*/
- DBConnection dbConnection = new DBConnection();
+        //Properties prop = null;
+        DBConnection dbConnection = new DBConnection();
         DataSource dataSource = dbConnection.createDataSource();
-      dataSource.getConnection();
+        //DataSource dataSource = dbConnection.createDataSource( prop );
+        dataSource.getConnection();
 //     configureFlyway ();
 
         //HttpEchoServer echoServer = new HttpEchoServer ( 5433 );
@@ -35,21 +29,21 @@ public class Conference {
 
         }
 
-    public static Flyway configureFlyway() throws IOException{
-        Properties properties = new Properties (  );
-        InputStream inputStream = null;
-
-        inputStream = new FileInputStream ( "DatabaseMain/innlevering.properties" );
-        properties.load ( inputStream );
-
-        Flyway flyway = Flyway.configure()
-                .dataSource(
-                        properties.getProperty ( "url" ),
-                        properties.getProperty ( "username" ),
-                        properties.getProperty ( "password" )
-                ).load();
-        return flyway;
-    }
+//    public static Flyway configureFlyway() throws IOException{
+//        Properties properties = new Properties (  );
+//        InputStream inputStream = null;
+//
+//        inputStream = new FileInputStream ( "DatabaseMain/innlevering.properties" );
+//        properties.load ( inputStream );
+//
+//        Flyway flyway = Flyway.configure()
+//                .dataSource(
+//                        properties.getProperty ( "url" ),
+//                        properties.getProperty ( "username" ),
+//                        properties.getProperty ( "password" )
+//                ).load();
+//        return flyway;
+//    }
 
 //        /*Forsøker å lage et standard-objekt av track og skrive dem ut*/
 //        Tracks tracks = new Tracks(dataSource);

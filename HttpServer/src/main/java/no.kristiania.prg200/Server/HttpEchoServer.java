@@ -26,7 +26,7 @@ public class HttpEchoServer {
 //        new Thread(this::runServerThread).start();
     }
 
-    public static void main(String[] args) throws IOException, ClassNotFoundException, SQLException, InstantiationException, IllegalAccessException {
+    public static void main(String[] args) throws IOException{
         new HttpEchoServer(10081);
     }
 
@@ -42,7 +42,7 @@ public class HttpEchoServer {
         }
     }*/
 
-    private void runServerThread() throws ClassNotFoundException, SQLException, InstantiationException, IllegalAccessException {
+    private void runServerThread(){
         while (true) {
             Socket clientSocket = null;
             try {
