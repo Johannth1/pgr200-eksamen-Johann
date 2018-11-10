@@ -1,8 +1,16 @@
 package no.kristiania.prg200.Server;
 
+
+import no.kristiania.prg200.database.core.Tracks;
+import no.kristiania.prg200.database.core.TracksDao;
+
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.sql.Connection;
+import java.sql.Driver;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -11,21 +19,36 @@ public class HttpEchoServer {
 
     private ServerSocket serverSocket;
 
-    public HttpEchoServer(int port) throws IOException {
+    public HttpEchoServer(int port) throws IOException{
         serverSocket = new ServerSocket (port);
         new Thread(this::runServerThread).start();
+//        new Thread(this::runServerThread).start();
+//        new Thread(this::runServerThread).start();
     }
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException, ClassNotFoundException, SQLException, InstantiationException, IllegalAccessException {
         new HttpEchoServer(10081);
     }
 
-    private void runServerThread() {
+/*    private Connection conn =  null;
+    public void sqlConnect() throws ClassNotFoundException, IllegalAccessException, InstantiationException, SQLException {
+        try {
+            Class.forName ( "com.mysql.jdbc.Driver" ).newInstance ();
+            conn =
+                    DriverManager.getConnection ( "jdbc:postgresql://localhost:5433/postgres",
+                            "postgres", "root");
+        } catch (Exception e){
+            System.out.println ("Error: " + e.getMessage ());
+        }
+    }*/
+
+    private void runServerThread() throws ClassNotFoundException, SQLException, InstantiationException, IllegalAccessException {
         while (true) {
             Socket clientSocket = null;
             try {
                 clientSocket = serverSocket.accept();
                 handleRequest(clientSocket);
+                //sqlConnect ();
             } catch (RuntimeException e) {
                 if (clientSocket != null) {
                     try {
@@ -43,6 +66,8 @@ public class HttpEchoServer {
     private void handleRequest(Socket clientSocket) throws IOException{
         String statusCode;
         String body;
+//        TracksDao tracksDao;
+//        Tracks tracks =  new Tracks ( dataSource );
 
         HttpQuery query;
         HttpHeader responseHeader = new HttpHeader();
@@ -63,6 +88,11 @@ public class HttpEchoServer {
 
             statusCode = query.get("status").orElse("200");
             body = query.get("body").orElse("None");
+
+//            tracksDao = new TracksDao ( dataSource  );
+//            tracksDao.save ( tracks );
+//            body = tracksDao.listAll ();
+
         } catch (RuntimeException e) {
             e.printStackTrace();
             writeResponseLine(clientSocket, "500");
@@ -103,4 +133,5 @@ public class HttpEchoServer {
         statusMessages.put("404", "Not Found");
         statusMessages.put("500", "Internal Server Error");
     }
+
 }

@@ -21,7 +21,9 @@ public class HttpResponse {
     public HttpResponse(Socket socket) throws IOException, SQLException {
         parseStatusLine(HttpIO.readLine(socket.getInputStream()));
         responseHeader.readHeader(socket.getInputStream());
-        body = HttpIO.readBody(socket.getInputStream(), responseHeader.getContentLength());
+
+        body = HttpIO.readBody(socket.getInputStream(),
+                        responseHeader.getContentLength());
         //body = tracksDao.listAll ().toString ();
     }
 

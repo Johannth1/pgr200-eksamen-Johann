@@ -1,5 +1,6 @@
 package no.kristiania.prg200.Server;
 
+import javax.sql.DataSource;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -22,6 +23,12 @@ public class HttpIO {
     public static void writeLine(OutputStream outputStream, String line) throws IOException {
         outputStream.write((line + "\r\n").getBytes());
     }
+
+/*    public static String readBody(InputStream inputStream, int contentLength, DataSource dataSource) throws IOException {
+
+
+        return null;
+    }*/
 
     public static String readBody(InputStream inputStream, int contentLength) throws IOException {
         if (contentLength < 0) {
