@@ -1,4 +1,4 @@
-package no.kristiania.prg200;
+package no.kristiania.prg200.Server;
 
 import java.io.IOException;
 import java.net.ServerSocket;

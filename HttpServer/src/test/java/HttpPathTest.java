@@ -1,4 +1,4 @@
-import no.kristiania.prg200.HttpPath;
+import no.kristiania.prg200.Server.HttpPath;
 import org.junit.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;

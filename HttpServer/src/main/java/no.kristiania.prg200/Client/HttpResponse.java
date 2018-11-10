@@ -1,6 +1,7 @@
-package no.kristiania.prg200;
+package no.kristiania.prg200.Client;
 
-import no.kristiania.prg200.database.core.TracksDao;
+import no.kristiania.prg200.Server.HttpHeader;
+import no.kristiania.prg200.Server.HttpIO;
 
 import java.io.IOException;
 import java.net.Socket;

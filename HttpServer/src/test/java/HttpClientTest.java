@@ -1,5 +1,5 @@
-import no.kristiania.prg200.HttpRequest;
-import no.kristiania.prg200.HttpResponse;
+import no.kristiania.prg200.Client.HttpRequest;
+import no.kristiania.prg200.Client.HttpResponse;
 import org.junit.Test;
 
 import java.io.IOException;

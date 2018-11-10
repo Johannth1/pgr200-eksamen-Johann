@@ -1,10 +1,11 @@
-package no.kristiania.prg200;
+package no.kristiania.prg200.Client;
 
-import org.postgresql.shaded.com.ongres.scram.common.ScramAttributeValue;
+import no.kristiania.prg200.Server.HttpHeader;
+import no.kristiania.prg200.Server.HttpIO;
+import no.kristiania.prg200.Server.HttpQuery;
 
 import java.io.IOException;
 import java.net.Socket;
-import java.net.UnknownHostException;
 import java.sql.SQLException;
 
 public class HttpRequest {
@@ -27,7 +28,7 @@ public class HttpRequest {
     public static void main(String[] args) {
         try {
             new HttpRequest ( "localhost", 10081, "/echo" ).execute ();
-            System.out.println ("You are connected!");
+            //System.out.println ("You are connected!");
         } catch (IOException e){
             System.err.println ("Error getting a http-connection: " + e.getMessage () + ", Cause of error: " + e.getCause ());
         } catch (SQLException e){

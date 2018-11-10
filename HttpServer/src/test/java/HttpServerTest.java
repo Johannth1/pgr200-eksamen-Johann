@@ -1,9 +1,9 @@
 
 
-import no.kristiania.prg200.HttpEchoServer;
-import no.kristiania.prg200.HttpQuery;
-import no.kristiania.prg200.HttpRequest;
-import no.kristiania.prg200.HttpResponse;
+import no.kristiania.prg200.Server.HttpEchoServer;
+import no.kristiania.prg200.Server.HttpQuery;
+import no.kristiania.prg200.Client.HttpRequest;
+import no.kristiania.prg200.Client.HttpResponse;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
