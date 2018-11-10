@@ -8,11 +8,12 @@ import java.util.Random;
 /**
  * I denne klassen kobler vi sammen Days, Talks, Rooms og Timeslots.
  *
- * TODO: Fikse timeslotsDao så man kan bruke save-metoden og lagre tilfeldige timeslot-objekter i DB'en.
+ * todo: evaluer om det er nødvendig med String tracks i tracks. + equals-metode + passende toString-metode
  */
 
 public class Tracks extends AbstractDao {
-    Long id = getId ();
+    Long id;
+    //Long id = getId ();
     String tracks;
 
     //Random random = new Random();
@@ -21,6 +22,7 @@ public class Tracks extends AbstractDao {
 
     public Tracks(DataSource dataSource){
         super(dataSource);
+        //id = getId();
         id = randomObject.randomLong ();
     }
 
