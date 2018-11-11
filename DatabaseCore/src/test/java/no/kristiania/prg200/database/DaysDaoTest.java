@@ -42,7 +42,7 @@ public class DaysDaoTest {
     }
 
     private Days sampleDays() {
-        Days days = new Days(0L, "", "");
+        Days days = new Days(0L, randomDays (), randomDates ());
         days.setDays ( randomDays() );
         days.setDate ( randomDates () );
         return days;

@@ -34,7 +34,7 @@ public class DaysDao extends AbstractDao implements DataAccessObject<Days> {
 
     @Override
     public Days retrieve (Long id) throws SQLException{
-        return retrieveSingleObject ( "SELECT * FROM days WHERE id = ?", this::mapToDays, id);
+        return retrieveSingleObject ( "SELECT * FROM days WHERE days_id = ?", this::mapToDays, id);
     }
 
     @Override
@@ -46,7 +46,7 @@ public class DaysDao extends AbstractDao implements DataAccessObject<Days> {
     public Days mapToDays(ResultSet rs) throws SQLException{
         Tracks tracks = new Tracks(dataSource);
         Days days = tracks.createStandardDays ();
-        days.setId ( rs.getLong ( "id" ) );
+        days.setId ( rs.getLong ( "days_id" ) );
         days.setDays ( rs.getString ( "days_days" ) );
         days.setDate ( rs.getString ( "days_date" ) );
         System.out.println(days);

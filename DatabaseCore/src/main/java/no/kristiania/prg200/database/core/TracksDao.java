@@ -55,7 +55,7 @@ public class TracksDao extends AbstractDao implements DataAccessObject<Tracks>{
 
     @Override
     public Tracks retrieve(Long id) throws SQLException {
-        return retrieveSingleObject ( "SELECT * FROM tracks WHERE id = ?", this::mapToTracks, id );
+        return retrieveSingleObject ( "SELECT * FROM tracks WHERE tracks_id = ?", this::mapToTracks, id );
     }
 
     @Override
@@ -71,7 +71,7 @@ public class TracksDao extends AbstractDao implements DataAccessObject<Tracks>{
         Timeslots timeslots = tracks.createStandardTimeslots();
         Rooms rooms = tracks.createStandardRooms();
 
-        tracks.setId ( rs.getLong ( "id" ) );
+        tracks.setId ( rs.getLong ( "tracks_id" ) );
         talks.setId ( rs.getLong ( "talks_id" ) );
         days.setId ( rs.getLong ( "days_id" ) );
         timeslots.setId ( rs.getLong ( "timeslots_id" ) );

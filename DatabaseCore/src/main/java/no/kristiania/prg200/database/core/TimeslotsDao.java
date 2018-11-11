@@ -34,7 +34,7 @@ public class TimeslotsDao extends AbstractDao implements DataAccessObject<Timesl
 
     @Override
     public Timeslots retrieve(Long id) throws  SQLException {
-        return retrieveSingleObject ( "SELECT * FROM timeslots WHERE id = ?", this::mapToTimeslots, id );
+        return retrieveSingleObject ( "SELECT * FROM timeslots WHERE timeslots_id = ?", this::mapToTimeslots, id );
 
     }
 
@@ -47,7 +47,7 @@ public class TimeslotsDao extends AbstractDao implements DataAccessObject<Timesl
     public Timeslots mapToTimeslots(ResultSet rs) throws SQLException{
         Tracks tracks = new Tracks(dataSource);
         Timeslots timeslots = tracks.createStandardTimeslots();
-        timeslots.setId ( rs.getLong ( "id" ) );
+        timeslots.setId ( rs.getLong ( "timeslots_id" ) );
         timeslots.setTime ( rs.getString ( "timeslots_time" ) );
         return timeslots;
     }

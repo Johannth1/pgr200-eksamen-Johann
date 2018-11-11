@@ -31,7 +31,7 @@ public class RoomsDao extends AbstractDao implements DataAccessObject<Rooms> {
 
     @Override
     public Rooms retrieve(Long id) throws  SQLException {
-        return retrieveSingleObject ( "SELECT * FROM rooms WHERE id = ?", this::mapToRooms, id );
+        return retrieveSingleObject ( "SELECT * FROM rooms WHERE rooms_id = ?", this::mapToRooms, id );
 
     }
 
@@ -44,7 +44,7 @@ public class RoomsDao extends AbstractDao implements DataAccessObject<Rooms> {
     public Rooms mapToRooms(ResultSet rs) throws SQLException{
         Tracks tracks = new Tracks(dataSource);
         Rooms rooms = tracks.createStandardRooms ();
-        rooms.setId ( rs.getLong ( "id" ) );
+        rooms.setId ( rs.getLong ( "rooms_id" ) );
         rooms.setRoom ( rs.getString ( "rooms_room" ) );
         System.out.println(rooms);
         return rooms;

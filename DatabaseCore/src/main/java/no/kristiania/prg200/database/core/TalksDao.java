@@ -38,7 +38,7 @@ public class TalksDao extends AbstractDao implements DataAccessObject<Talks> {
 
     @Override
     public Talks retrieve(Long id) throws SQLException {
-        return retrieveSingleObject ( "SELECT * FROM talks WHERE id = ?", this::mapToTalks, id);
+        return retrieveSingleObject ( "SELECT * FROM talks WHERE talks_id = ?", this::mapToTalks, id);
     }
 
     @Override
@@ -50,7 +50,7 @@ public class TalksDao extends AbstractDao implements DataAccessObject<Talks> {
     public Talks mapToTalks(ResultSet rs) throws SQLException{
         Tracks tracks = new Tracks(dataSource);
         Talks talks = tracks.createStandardTalks ();
-        talks.setId ( rs.getLong ( "id" ) );
+        talks.setId ( rs.getLong ( "talks_id" ) );
         talks.setTitle ( rs.getString ( "talks_title" ) );
         talks.setTopic ( rs.getString ( "talks_topic" ) );
         talks.setDescription ( rs.getString ( "talks_description" ) );
