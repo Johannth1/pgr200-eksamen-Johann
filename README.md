@@ -31,9 +31,7 @@ Vi har flere prosjekter i andre fag samtidig, så da har vi prøvd å møtes de 
 
 ###Databasediagram
 
-Link
-
-https://ibb.co/mjjGJL
+Se images fil.
 
 ----------------
 ###Video
@@ -55,6 +53,6 @@ Flertallsnavn på klasser: Vi er klar over at det er foretrukket praksis å skul
 Så hvis vi ikke har rettet opp i navngivningen innen mappen blir levert inn, er det rett og slett fordi vi heller har måttet prioritere annen funksjonalitet i koden.
 
 11.11.2018 03:34
-Hvis dette er koden som er den siste som er lagt inn, er det fremdeles en del som gjenstår for å få programmet til å kjøre sql-spørringer fra klient via server til databasen. Sannsynligvis har det hendt noe som gjør at vi ikke har blitt ferdig.
+Hvis dette er koden som er den siste som er lagt inn, er det fremdeles en del som gjenstår for å få programmet til å kjøre sql-spørringer fra klient via server til databasen. Sannsynligvis har det hendt noe dramatisk som gjør at vi ikke har blitt ferdig.
 
 ----------------

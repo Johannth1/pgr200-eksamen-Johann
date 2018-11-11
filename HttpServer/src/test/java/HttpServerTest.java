@@ -42,7 +42,7 @@ public class HttpServerTest {
     @Test
     public void shouldParseHeaders() throws IOException, SQLException {
         HttpRequest request = new HttpRequest("localhost", server.getPort(),
-                "/echo?Location=http%3A%2F%2Fwww.google.com");
+                                        "/echo?Location=http%3A%2F%2Fwww.google.com");
         HttpResponse response = request.execute();
         assertThat(response.getHeader("location")).isEqualTo("http://www.google.com");
     }

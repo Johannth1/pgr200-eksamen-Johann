@@ -89,13 +89,14 @@ public class HttpEchoServer {
                 query = path.query();
             }
 
+
+
             TalksDao dao = new TalksDao (dataSource);
 
-
-
             statusCode = query.get("status").orElse("200");
-            body = dao.listAll().toString();
-            //body = query.get("body").orElse("None");
+            //body = dao.listAll().toString();
+
+            body = query.get("body").orElse("None");
             add = query.get("add").orElse("");
             System.out.println (add);
 
@@ -105,8 +106,8 @@ public class HttpEchoServer {
             writeResponseLine(clientSocket, "500");
             responseHeader.writeTo(clientSocket.getOutputStream());
             return;
-        } catch (SQLException e) {
-            e.printStackTrace ();
+//        } catch (SQLException e) {
+//            e.printStackTrace ();
         }
 
         writeResponseLine(clientSocket, statusCode);
