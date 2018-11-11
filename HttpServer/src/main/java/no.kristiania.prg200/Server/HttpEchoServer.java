@@ -1,18 +1,14 @@
 package no.kristiania.prg200.Server;
 
 
-import no.kristiania.prg200.database.core.Tracks;
-import no.kristiania.prg200.database.core.TracksDao;
-
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.sql.Connection;
-import java.sql.Driver;
-import java.sql.DriverManager;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Scanner;
+
 
 public class HttpEchoServer {
 
@@ -30,18 +26,18 @@ public class HttpEchoServer {
         new HttpEchoServer(10081);
     }
 
-/*    private Connection conn =  null;
-    public void sqlConnect() throws ClassNotFoundException, IllegalAccessException, InstantiationException, SQLException {
-        try {
-            Class.forName ( "com.mysql.jdbc.Driver" ).newInstance ();
-            conn =
-                    DriverManager.getConnection ( "jdbc:postgresql://localhost:5433/postgres",
-                            "postgres", "root");
-        } catch (Exception e){
-            System.out.println ("Error: " + e.getMessage ());
-        }
-    }*/
-
+//    private Connection conn =  null;
+//    public Statement sqlConnect(){
+//        try {
+//            Class.forName ( "com.mysql.jdbc.Driver" ).newInstance ();
+//            conn =
+//                    DriverManager.getConnection ( "jdbc:postgresql://localhost:5433/postgres",
+//                            "postgres", "root");
+//        } catch (Exception e){
+//            System.out.println ("Error: " + e.getMessage ());
+//        }
+//        return null;
+//    }
     private void runServerThread(){
         while (true) {
             Socket clientSocket = null;
@@ -137,13 +133,31 @@ public class HttpEchoServer {
         statusMessages.put("500", "Internal Server Error");
     }
 
-    //lag en metode som håndterer "add", gjør om til INSERT INTO
+    //TODO: lag en metode som håndterer "add", gjør om til INSERT INTO
 
     public String insertRoom(String s) {
-        String table = s.substring(0, s.indexOf("."));
-        String column = s.substring(s.indexOf(".") + 1, s.indexOf("("));
-        String value = s.substring(s.indexOf("(") + 1, s.indexOf(")"));
-        return s;
-    }
+//        String table = s.substring(0, s.indexOf("."));
+//        String column = s.substring(s.indexOf(".") + 1, s.indexOf("("));
+//        String value = s.substring(s.indexOf("(") + 1, s.indexOf(")"));
+//        return s;
 
+        Scanner userIn = new Scanner ( System.in );
+
+        try {
+            Connection conn = DriverManager.getConnection ( "jdbc:postgresql://localhost:5433/postgres", "postgres", "root" );
+            try (Statement statement = conn.createStatement ()){
+                System.out.println ("You are connected to the DB!");
+                System.out.println ("Hva heter rommet du ønsker å finne? ");
+                System.out.println ("SELECT ");
+                ResultSet rs = statement.executeQuery ( "SELECT" + userIn + "FROM rooms" );
+                while(rs.next ()){
+                    Long x = rs.getLong ( "1L" );
+                    String string = rs.getString ( "rooms_room" );
+                }
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace ();
+        }
+    }
 }
