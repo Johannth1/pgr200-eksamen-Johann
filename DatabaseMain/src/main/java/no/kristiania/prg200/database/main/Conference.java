@@ -1,5 +1,6 @@
 package no.kristiania.prg200.database.main;
 
+import no.kristiania.prg200.Server.HttpEchoServer;
 import no.kristiania.prg200.database.core.*;
 import org.flywaydb.core.Flyway;
 
@@ -13,14 +14,18 @@ import java.util.Properties;
 
 public class Conference {
 
+    SendRequest sr = new SendRequest ();
+
     public static void main(String[] args) throws IOException, SQLException {
         /*Creates a DBConnection-object that connects us to our DB*/
         //Properties prop = null;
+        new HttpEchoServer ( 10081 );
         DBConnection dbConnection = new DBConnection();
-        DataSource dataSource = dbConnection.createDataSource();
+        new Conference ().run(args);
+//        DataSource dataSource = dbConnection.createDataSource();
 
         //DataSource dataSource = dbConnection.createDataSource( prop );
-        dataSource.getConnection();
+        //dataSource.getConnection();
 //     configureFlyway ();
 
         //HttpEchoServer echoServer = new HttpEchoServer ( 5433 );
@@ -47,6 +52,10 @@ public class Conference {
 
 
 
+    }
+
+    public void run(String[] args) throws IOException, SQLException {
+        sr.insertRoom ();
     }
 
 

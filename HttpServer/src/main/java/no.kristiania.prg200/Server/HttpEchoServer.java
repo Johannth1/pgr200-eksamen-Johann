@@ -66,6 +66,8 @@ public class HttpEchoServer {
     private void handleRequest(Socket clientSocket) throws IOException{
         String statusCode;
         String body;
+        String add;
+
 //        TracksDao tracksDao;
 //        Tracks tracks =  new Tracks ( dataSource );
 
@@ -88,7 +90,8 @@ public class HttpEchoServer {
 
             statusCode = query.get("status").orElse("200");
             body = query.get("body").orElse("None");
-
+            add = query.get("add").orElse("");
+            System.out.println (add);
 //            tracksDao = new TracksDao ( dataSource  );
 //            tracksDao.save ( tracks );
 //            body = tracksDao.listAll ();
@@ -134,4 +137,10 @@ public class HttpEchoServer {
         statusMessages.put("500", "Internal Server Error");
     }
 
+    //lag en metode som håndterer "add", gjør om til INSERT INTO
+
+    public String insertRoom(String s) {
+        String table = s.substring(0, s.indexOf("."));
+    }           String column = s.substring(s.indexOf(".") + 1, s.indexOf("("));
+                String value = s.substring(s.indexOf("(") + 1, s.indexOf(")"));
 }

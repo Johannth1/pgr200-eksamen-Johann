@@ -26,11 +26,19 @@ public class DBConnection {
     private static Flyway flyway;
     private static InputStream input = null;
 
-    public static DataSource createDataSource() throws NullPointerException, IOException {
+    /*public static void main(String[] args) {
+        try {
+            createDataSource (prop);
+        } catch (IOException e) {
+            e.printStackTrace ();
+        }
+    }*/
+
+    public static DataSource createDataSource(Properties prop) throws NullPointerException, IOException {
         PGPoolingDataSource dataSource = new PGPoolingDataSource ();
-/*        dataSource.setURL (prop.getProperty ( "jdbc:postgresql://localhost:5433/postgres"));
+        dataSource.setURL (prop.getProperty ( "jdbc:postgresql://localhost:5433/postgres"));
         dataSource.setUser ( prop.getProperty ( "postgres" ) );
-        dataSource.setPassword ( prop.getProperty ( "root" ) );*/
+        dataSource.setPassword ( prop.getProperty ( "root" ) );
         configureFlyway ();
         return dataSource;
     }
@@ -58,8 +66,8 @@ public class DBConnection {
                 prop.getProperty ( "dataSource.password" )).load();
         flyway.setBaselineOnMigrate ( true );
 
-        DataSource dataSource = createDataSource ();
-        //DataSource dataSource = createDataSource (prop);
+        //DataSource dataSource = createDataSource ();
+        DataSource dataSource = createDataSource (prop);
         try {
             executeConnection ( dataSource, readFile ( "/Users/linenathalieronning/Desktop/AvansertJavaMappe/--EKSAMEN--JAVA--/pgr200-eksamen-LegoLine/DatabaseCore/src/main/resources/db/migration/V001__create_table_talks.sql" ) );
             executeConnection ( dataSource, readFile ( "/Users/linenathalieronning/Desktop/AvansertJavaMappe/--EKSAMEN--JAVA--/pgr200-eksamen-LegoLine/DatabaseCore/src/main/resources/db/migration/V002__create_table_days.sql" ) );
