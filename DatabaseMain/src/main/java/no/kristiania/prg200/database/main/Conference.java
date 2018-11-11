@@ -1,15 +1,11 @@
 package no.kristiania.prg200.database.main;
 
+import no.kristiania.prg200.Client.SendRequest;
 import no.kristiania.prg200.Server.HttpEchoServer;
 import no.kristiania.prg200.database.core.*;
-import org.flywaydb.core.Flyway;
 
-import javax.sql.DataSource;
-import java.io.FileInputStream;
 import java.io.IOException;
-import java.io.InputStream;
 import java.sql.SQLException;
-import java.util.Properties;
 
 
 public class Conference {
@@ -21,7 +17,8 @@ public class Conference {
         //Properties prop = null;
         new HttpEchoServer ( 10081 );
         DBConnection dbConnection = new DBConnection();
-        new Conference ().run(args);
+        new Conference ().runInserts (args);
+
 //        DataSource dataSource = dbConnection.createDataSource();
 
         //DataSource dataSource = dbConnection.createDataSource( prop );
@@ -54,8 +51,29 @@ public class Conference {
 
     }
 
-    public void run(String[] args) throws IOException, SQLException {
+    public void runInserts(String[] args) throws IOException, SQLException {
+        String message = "Vennligst skriv inn følgende felter i ";
+
+        System.out.println (message + "rooms: ");
+        System.out.println ("rooms_room");
         sr.insertRoom ();
+
+        System.out.println (message + "talks: ");
+        System.out.println ("talks_title, talks_description, talks_topic");
+        sr.insertTalk ();
+
+        System.out.println (message + "days: ");
+        System.out.println ("days_day, days_date");
+        sr.insertDay ();
+
+        System.out.println (message + "timeslots: ");
+        System.out.println ("timeslots_time");
+        sr.insertTimeslots ();
+
+        System.out.println (message + "tracks: ");
+        System.out.println ("tracks_tracks, talks_id, days_id, timeslots_id, rooms_id");
+        sr.insertTracks ();
+
     }
 
 

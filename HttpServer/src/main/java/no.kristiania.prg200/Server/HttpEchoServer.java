@@ -1,6 +1,8 @@
 package no.kristiania.prg200.Server;
 
 
+import no.kristiania.prg200.Client.SendRequest;
+
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
@@ -64,8 +66,6 @@ public class HttpEchoServer {
         String body;
         String add;
 
-//        TracksDao tracksDao;
-//        Tracks tracks =  new Tracks ( dataSource );
 
         HttpQuery query;
         HttpHeader responseHeader = new HttpHeader();
@@ -88,9 +88,7 @@ public class HttpEchoServer {
             body = query.get("body").orElse("None");
             add = query.get("add").orElse("");
             System.out.println (add);
-//            tracksDao = new TracksDao ( dataSource  );
-//            tracksDao.save ( tracks );
-//            body = tracksDao.listAll ();
+
 
         } catch (RuntimeException e) {
             e.printStackTrace();
@@ -135,29 +133,17 @@ public class HttpEchoServer {
 
     //TODO: lag en metode som håndterer "add", gjør om til INSERT INTO + finne ut hvor de forskjellige metodene skal ligge og hva som funker for vårt program
 
-    public String insertRoom(String s) {
-//        String table = s.substring(0, s.indexOf("."));
-//        String column = s.substring(s.indexOf(".") + 1, s.indexOf("("));
-//        String value = s.substring(s.indexOf("(") + 1, s.indexOf(")"));
-//        return s;
+    public String insertRoomQuery(String s) throws IOException, SQLException {
+        SendRequest sr = new SendRequest();
+        sr.insertRoom ();
 
-        Scanner userIn = new Scanner ( System.in );
+        String table = s.substring(0, s.indexOf("."));
+        String column = s.substring(s.indexOf(".") + 1, s.indexOf("("));
+        String value = s.substring(s.indexOf("(") + 1, s.indexOf(")"));
 
-        try {
-            Connection conn = DriverManager.getConnection ( "jdbc:postgresql://localhost:5433/postgres", "postgres", "root" );
-            try (Statement statement = conn.createStatement ()){
-                System.out.println ("You are connected to the DB!");
-                System.out.println ("Hva heter rommet du ønsker å finne? ");
-                System.out.println ("SELECT ");
-                ResultSet rs = statement.executeQuery ( "SELECT" + userIn + "FROM rooms" );
-                while(rs.next ()){
-                    Long x = rs.getLong ( "1L" );
-                    String string = rs.getString ( "rooms_room" );
-                }
-            }
+        String sqlInsertRoom = "INSERT INTO " + table + "." + column + "(" + value + ")";
 
-        } catch (SQLException e) {
-            e.printStackTrace ();
-        }
+        return sqlInsertRoom;
+
     }
 }
