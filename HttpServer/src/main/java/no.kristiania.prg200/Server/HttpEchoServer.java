@@ -133,7 +133,7 @@ public class HttpEchoServer {
         statusMessages.put("500", "Internal Server Error");
     }
 
-    //TODO: lag en metode som håndterer "add", gjør om til INSERT INTO
+    //TODO: lag en metode som håndterer "add", gjør om til INSERT INTO + finne ut hvor de forskjellige metodene skal ligge og hva som funker for vårt program
 
     public String insertRoom(String s) {
 //        String table = s.substring(0, s.indexOf("."));
