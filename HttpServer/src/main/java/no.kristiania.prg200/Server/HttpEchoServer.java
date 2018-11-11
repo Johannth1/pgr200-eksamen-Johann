@@ -141,6 +141,9 @@ public class HttpEchoServer {
 
     public String insertRoom(String s) {
         String table = s.substring(0, s.indexOf("."));
-    }           String column = s.substring(s.indexOf(".") + 1, s.indexOf("("));
-                String value = s.substring(s.indexOf("(") + 1, s.indexOf(")"));
+        String column = s.substring(s.indexOf(".") + 1, s.indexOf("("));
+        String value = s.substring(s.indexOf("(") + 1, s.indexOf(")"));
+        return s;
+    }
+
 }
