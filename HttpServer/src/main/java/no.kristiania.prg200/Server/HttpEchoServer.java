@@ -83,7 +83,9 @@ public class HttpEchoServer {
 
             if (requestLine.split(" ")[0].equals("POST")) {
                 query = new HttpQuery(HttpIO.readBody(clientSocket.getInputStream(), headers.getContentLength()));
-            } else {
+            } /*if (requestLine.split(" ")[0].equals("GET")) {
+                query = new HttpQuery(HttpIO.readBody(clientSocket.getInputStream(), headers.getContentLength()));
+            }*/ else {
                 query = path.query();
             }
 
