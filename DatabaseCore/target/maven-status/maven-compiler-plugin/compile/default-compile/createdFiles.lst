@@ -1,0 +1,15 @@
+no/kristiania/prg200/database/core/RandomObject.class
+no/kristiania/prg200/database/core/DaysDao.class
+no/kristiania/prg200/database/core/AbstractDao.class
+no/kristiania/prg200/database/core/Timeslots.class
+no/kristiania/prg200/database/core/RoomsDao.class
+no/kristiania/prg200/database/core/DataAccessObject.class
+no/kristiania/prg200/database/core/TalksDao.class
+no/kristiania/prg200/database/core/Talks.class
+no/kristiania/prg200/database/core/Tracks.class
+no/kristiania/prg200/database/core/TracksDao.class
+no/kristiania/prg200/database/core/DBConnection.class
+no/kristiania/prg200/database/core/TimeslotsDao.class
+no/kristiania/prg200/database/core/Days.class
+no/kristiania/prg200/database/core/ResultSetMapper.class
+no/kristiania/prg200/database/core/Rooms.class

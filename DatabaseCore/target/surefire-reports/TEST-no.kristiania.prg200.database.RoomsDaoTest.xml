@@ -1,0 +1,405 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuite tests="3" failures="0" name="no.kristiania.prg200.database.RoomsDaoTest" time="0.019" errors="3" skipped="0">
+  <properties>
+    <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
+    <property name="java.vm.version" value="10+46"/>
+    <property name="sun.boot.library.path" value="/Library/Java/JavaVirtualMachines/jdk-10.jdk/Contents/Home/lib"/>
+    <property name="gopherProxySet" value="false"/>
+    <property name="maven.multiModuleProjectDirectory" value="/Users/linenathalieronning/Desktop/AvansertJavaMappe/--EKSAMEN--JAVA--/pgr200-eksamen-LegoLine"/>
+    <property name="java.vm.vendor" value="&quot;Oracle Corporation&quot;"/>
+    <property name="java.vendor.url" value="http://java.oracle.com/"/>
+    <property name="guice.disable.misplaced.annotation.check" value="true"/>
+    <property name="path.separator" value=":"/>
+    <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM"/>
+    <property name="file.encoding.pkg" value="sun.io"/>
+    <property name="sun.os.patch.level" value="unknown"/>
+    <property name="user.country" value="NO"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="user.dir" value="/Users/linenathalieronning/Desktop/AvansertJavaMappe/--EKSAMEN--JAVA--/pgr200-eksamen-LegoLine"/>
+    <property name="java.vm.compressedOopsMode" value="Zero based"/>
+    <property name="java.runtime.version" value="10+46"/>
+    <property name="java.awt.graphicsenv" value="sun.awt.CGraphicsEnvironment"/>
+    <property name="os.arch" value="x86_64"/>
+    <property name="java.io.tmpdir" value="/var/folders/mw/rncvl4d95hb6_lmy4ptjrs0r0000gn/T/"/>
+    <property name="line.separator" value="
+"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="os.name" value="Mac OS X"/>
+    <property name="classworlds.conf" value="/usr/local/Cellar/maven/3.5.4/libexec/bin/m2.conf"/>
+    <property name="sun.jnu.encoding" value="UTF-8"/>
+    <property name="java.library.path" value="/Users/linenathalieronning/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:."/>
+    <property name="maven.conf" value="/usr/local/Cellar/maven/3.5.4/libexec/conf"/>
+    <property name="jdk.debug" value="release"/>
+    <property name="java.class.version" value="54.0"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="os.version" value="10.13.6"/>
+    <property name="library.jansi.path" value="/usr/local/Cellar/maven/3.5.4/libexec/lib/jansi-native"/>
+    <property name="user.home" value="/Users/linenathalieronning"/>
+    <property name="user.timezone" value="Europe/Oslo"/>
+    <property name="java.awt.printerjob" value="sun.lwawt.macosx.CPrinterJob"/>
+    <property name="file.encoding" value="UTF-8"/>
+    <property name="java.specification.version" value="10"/>
+    <property name="user.name" value="linenathalieronning"/>
+    <property name="java.class.path" value="/usr/local/Cellar/maven/3.5.4/libexec/boot/plexus-classworlds-2.5.2.jar"/>
+    <property name="java.vm.specification.version" value="10"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher install"/>
+    <property name="java.home" value="/Library/Java/JavaVirtualMachines/jdk-10.jdk/Contents/Home"/>
+    <property name="user.language" value="nb"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="awt.toolkit" value="sun.lwawt.macosx.LWCToolkit"/>
+    <property name="java.vm.info" value="mixed mode"/>
+    <property name="java.version" value="10"/>
+    <property name="java.vendor" value="Oracle Corporation"/>
+    <property name="maven.home" value="/usr/local/Cellar/maven/3.5.4/libexec"/>
+    <property name="file.separator" value="/"/>
+    <property name="java.version.date" value="2018-03-20"/>
+    <property name="java.vendor.url.bug" value="http://bugreport.java.com/bugreport/"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeBig"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="java.vendor.version" value="18.3"/>
+    <property name="sun.cpu.isalist" value=""/>
+  </properties>
+  <testcase classname="no.kristiania.prg200.database.RoomsDaoTest" name="shouldFindSavedRooms" time="0.017">
+    <error message="
+Migration V006__create_table_tracks.sql failed
+----------------------------------------------
+SQL State  : 42001
+Error Code : 42001
+Message    : Syntax error in SQL statement &quot;CREATE TABLE IF NOT EXISTS TRACKS (
+    TRACKS_ID SERIAL PRIMARY KEY,
+    TRACKS_TRACKS VARCHAR NOT NULL,
+    TALKS_ID INTEGER NOT NULL,
+    DAYS_ID INTEGER NOT NULL,
+    TIMESLOTS_ID INTEGER NOT NULL,
+    ROOMS_ID INTEGER NOT NULL
+     FOREIGN[*] KEY (TALKS_ID) REFERENCES TALKS(TALKS_ID)
+                                                 
+                                                           
+                                                   
+    ) &quot;; expected &quot;AS, DEFAULT, GENERATED, ON, NOT, NULL, AUTO_INCREMENT, BIGSERIAL, SERIAL, IDENTITY, NULL_TO_DEFAULT, SEQUENCE, SELECTIVITY, COMMENT, CONSTRAINT, PRIMARY, UNIQUE, NOT, NULL, CHECK, REFERENCES, ,, )&quot;; SQL statement:
+create table if not exists tracks (
+    tracks_id serial primary key,
+    tracks_tracks varchar not null,
+    talks_id integer not null,
+    days_id integer not null,
+    timeslots_id integer not null,
+    rooms_id integer not null
+     FOREIGN KEY (talks_id) REFERENCES talks(talks_id)
+--     FOREIGN KEY (days_id) REFERENCES days(id),
+--     FOREIGN KEY (timeslots_id) REFERENCES timeslots(id),
+--     FOREIGN KEY (rooms_id) REFERENCES rooms(id);
+    ) [42001-197]
+Location   : db/migration/V006__create_table_tracks.sql (/Users/linenathalieronning/Desktop/AvansertJavaMappe/--EKSAMEN--JAVA--/pgr200-eksamen-LegoLine/DatabaseCore/target/classes/db/migration/V006__create_table_tracks.sql)
+Line       : 1
+Statement  : create table if not exists tracks (
+    tracks_id serial primary key,
+    tracks_tracks varchar not null,
+    talks_id integer not null,
+    days_id integer not null,
+    timeslots_id integer not null,
+    rooms_id integer not null
+     FOREIGN KEY (talks_id) REFERENCES talks(talks_id)
+--     FOREIGN KEY (days_id) REFERENCES days(id),
+--     FOREIGN KEY (timeslots_id) REFERENCES timeslots(id),
+--     FOREIGN KEY (rooms_id) REFERENCES rooms(id);
+    )
+" type="org.flywaydb.core.internal.command.DbMigrate$FlywayMigrateException">org.flywaydb.core.internal.command.DbMigrate$FlywayMigrateException: 
+Migration V006__create_table_tracks.sql failed
+----------------------------------------------
+SQL State  : 42001
+Error Code : 42001
+Message    : Syntax error in SQL statement &quot;CREATE TABLE IF NOT EXISTS TRACKS (
+    TRACKS_ID SERIAL PRIMARY KEY,
+    TRACKS_TRACKS VARCHAR NOT NULL,
+    TALKS_ID INTEGER NOT NULL,
+    DAYS_ID INTEGER NOT NULL,
+    TIMESLOTS_ID INTEGER NOT NULL,
+    ROOMS_ID INTEGER NOT NULL
+     FOREIGN[*] KEY (TALKS_ID) REFERENCES TALKS(TALKS_ID)
+                                                 
+                                                           
+                                                   
+    ) &quot;; expected &quot;AS, DEFAULT, GENERATED, ON, NOT, NULL, AUTO_INCREMENT, BIGSERIAL, SERIAL, IDENTITY, NULL_TO_DEFAULT, SEQUENCE, SELECTIVITY, COMMENT, CONSTRAINT, PRIMARY, UNIQUE, NOT, NULL, CHECK, REFERENCES, ,, )&quot;; SQL statement:
+create table if not exists tracks (
+    tracks_id serial primary key,
+    tracks_tracks varchar not null,
+    talks_id integer not null,
+    days_id integer not null,
+    timeslots_id integer not null,
+    rooms_id integer not null
+     FOREIGN KEY (talks_id) REFERENCES talks(talks_id)
+--     FOREIGN KEY (days_id) REFERENCES days(id),
+--     FOREIGN KEY (timeslots_id) REFERENCES timeslots(id),
+--     FOREIGN KEY (rooms_id) REFERENCES rooms(id);
+    ) [42001-197]
+Location   : db/migration/V006__create_table_tracks.sql (/Users/linenathalieronning/Desktop/AvansertJavaMappe/--EKSAMEN--JAVA--/pgr200-eksamen-LegoLine/DatabaseCore/target/classes/db/migration/V006__create_table_tracks.sql)
+Line       : 1
+Statement  : create table if not exists tracks (
+    tracks_id serial primary key,
+    tracks_tracks varchar not null,
+    talks_id integer not null,
+    days_id integer not null,
+    timeslots_id integer not null,
+    rooms_id integer not null
+     FOREIGN KEY (talks_id) REFERENCES talks(talks_id)
+--     FOREIGN KEY (days_id) REFERENCES days(id),
+--     FOREIGN KEY (timeslots_id) REFERENCES timeslots(id),
+--     FOREIGN KEY (rooms_id) REFERENCES rooms(id);
+    )
+
+	at org.flywaydb.core.internal.command.DbMigrate.doMigrateGroup(DbMigrate.java:370)
+	at org.flywaydb.core.internal.command.DbMigrate.access$200(DbMigrate.java:54)
+	at org.flywaydb.core.internal.command.DbMigrate$3.call(DbMigrate.java:284)
+	at org.flywaydb.core.internal.jdbc.TransactionTemplate.execute(TransactionTemplate.java:74)
+	at org.flywaydb.core.internal.command.DbMigrate.applyMigrations(DbMigrate.java:281)
+	at org.flywaydb.core.internal.command.DbMigrate.migrateGroup(DbMigrate.java:246)
+	at org.flywaydb.core.internal.command.DbMigrate.access$100(DbMigrate.java:54)
+	at org.flywaydb.core.internal.command.DbMigrate$2.call(DbMigrate.java:164)
+	at org.flywaydb.core.internal.command.DbMigrate$2.call(DbMigrate.java:161)
+	at org.flywaydb.core.internal.database.base.Connection$1.call(Connection.java:147)
+	at org.flywaydb.core.internal.jdbc.TransactionTemplate.execute(TransactionTemplate.java:74)
+	at org.flywaydb.core.internal.database.base.Connection.lock(Connection.java:143)
+	at org.flywaydb.core.internal.schemahistory.JdbcTableSchemaHistory.lock(JdbcTableSchemaHistory.java:155)
+	at org.flywaydb.core.internal.command.DbMigrate.migrateAll(DbMigrate.java:161)
+	at org.flywaydb.core.internal.command.DbMigrate.migrate(DbMigrate.java:139)
+	at org.flywaydb.core.Flyway$1.execute(Flyway.java:1288)
+	at org.flywaydb.core.Flyway$1.execute(Flyway.java:1249)
+	at org.flywaydb.core.Flyway.execute(Flyway.java:1604)
+	at org.flywaydb.core.Flyway.migrate(Flyway.java:1249)
+	at no.kristiania.prg200.database.TestDataSource.createDataSource(TestDataSource.java:18)
+	at no.kristiania.prg200.database.RoomsDaoTest.&lt;init&gt;(RoomsDaoTest.java:13)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:488)
+	at org.junit.runners.BlockJUnit4ClassRunner.createTest(BlockJUnit4ClassRunner.java:217)
+	at org.junit.runners.BlockJUnit4ClassRunner$1.runReflectiveCall(BlockJUnit4ClassRunner.java:266)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.BlockJUnit4ClassRunner.methodBlock(BlockJUnit4ClassRunner.java:263)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:252)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:141)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:112)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:564)
+	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray(ReflectionUtils.java:189)
+	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:165)
+	at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:85)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
+Caused by: org.flywaydb.core.internal.sqlscript.FlywaySqlScriptException: 
+Migration V006__create_table_tracks.sql failed
+----------------------------------------------
+SQL State  : 42001
+Error Code : 42001
+Message    : Syntax error in SQL statement &quot;CREATE TABLE IF NOT EXISTS TRACKS (
+    TRACKS_ID SERIAL PRIMARY KEY,
+    TRACKS_TRACKS VARCHAR NOT NULL,
+    TALKS_ID INTEGER NOT NULL,
+    DAYS_ID INTEGER NOT NULL,
+    TIMESLOTS_ID INTEGER NOT NULL,
+    ROOMS_ID INTEGER NOT NULL
+     FOREIGN[*] KEY (TALKS_ID) REFERENCES TALKS(TALKS_ID)
+                                                 
+                                                           
+                                                   
+    ) &quot;; expected &quot;AS, DEFAULT, GENERATED, ON, NOT, NULL, AUTO_INCREMENT, BIGSERIAL, SERIAL, IDENTITY, NULL_TO_DEFAULT, SEQUENCE, SELECTIVITY, COMMENT, CONSTRAINT, PRIMARY, UNIQUE, NOT, NULL, CHECK, REFERENCES, ,, )&quot;; SQL statement:
+create table if not exists tracks (
+    tracks_id serial primary key,
+    tracks_tracks varchar not null,
+    talks_id integer not null,
+    days_id integer not null,
+    timeslots_id integer not null,
+    rooms_id integer not null
+     FOREIGN KEY (talks_id) REFERENCES talks(talks_id)
+--     FOREIGN KEY (days_id) REFERENCES days(id),
+--     FOREIGN KEY (timeslots_id) REFERENCES timeslots(id),
+--     FOREIGN KEY (rooms_id) REFERENCES rooms(id);
+    ) [42001-197]
+Location   : db/migration/V006__create_table_tracks.sql (/Users/linenathalieronning/Desktop/AvansertJavaMappe/--EKSAMEN--JAVA--/pgr200-eksamen-LegoLine/DatabaseCore/target/classes/db/migration/V006__create_table_tracks.sql)
+Line       : 1
+Statement  : create table if not exists tracks (
+    tracks_id serial primary key,
+    tracks_tracks varchar not null,
+    talks_id integer not null,
+    days_id integer not null,
+    timeslots_id integer not null,
+    rooms_id integer not null
+     FOREIGN KEY (talks_id) REFERENCES talks(talks_id)
+--     FOREIGN KEY (days_id) REFERENCES days(id),
+--     FOREIGN KEY (timeslots_id) REFERENCES timeslots(id),
+--     FOREIGN KEY (rooms_id) REFERENCES rooms(id);
+    )
+
+	at org.flywaydb.core.internal.sqlscript.DefaultSqlScriptExecutor.handleException(DefaultSqlScriptExecutor.java:249)
+	at org.flywaydb.core.internal.sqlscript.DefaultSqlScriptExecutor.executeStatement(DefaultSqlScriptExecutor.java:202)
+	at org.flywaydb.core.internal.sqlscript.DefaultSqlScriptExecutor.execute(DefaultSqlScriptExecutor.java:125)
+	at org.flywaydb.core.internal.resolver.sql.SqlMigrationExecutor.execute(SqlMigrationExecutor.java:77)
+	at org.flywaydb.core.internal.command.DbMigrate.doMigrateGroup(DbMigrate.java:367)
+	... 48 more
+Caused by: org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement &quot;CREATE TABLE IF NOT EXISTS TRACKS (
+    TRACKS_ID SERIAL PRIMARY KEY,
+    TRACKS_TRACKS VARCHAR NOT NULL,
+    TALKS_ID INTEGER NOT NULL,
+    DAYS_ID INTEGER NOT NULL,
+    TIMESLOTS_ID INTEGER NOT NULL,
+    ROOMS_ID INTEGER NOT NULL
+     FOREIGN[*] KEY (TALKS_ID) REFERENCES TALKS(TALKS_ID)
+                                                 
+                                                           
+                                                   
+    ) &quot;; expected &quot;AS, DEFAULT, GENERATED, ON, NOT, NULL, AUTO_INCREMENT, BIGSERIAL, SERIAL, IDENTITY, NULL_TO_DEFAULT, SEQUENCE, SELECTIVITY, COMMENT, CONSTRAINT, PRIMARY, UNIQUE, NOT, NULL, CHECK, REFERENCES, ,, )&quot;; SQL statement:
+create table if not exists tracks (
+    tracks_id serial primary key,
+    tracks_tracks varchar not null,
+    talks_id integer not null,
+    days_id integer not null,
+    timeslots_id integer not null,
+    rooms_id integer not null
+     FOREIGN KEY (talks_id) REFERENCES talks(talks_id)
+--     FOREIGN KEY (days_id) REFERENCES days(id),
+--     FOREIGN KEY (timeslots_id) REFERENCES timeslots(id),
+--     FOREIGN KEY (rooms_id) REFERENCES rooms(id);
+    ) [42001-197]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:357)
+	at org.h2.message.DbException.getSyntaxError(DbException.java:217)
+	at org.h2.command.Parser.getSyntaxError(Parser.java:555)
+	at org.h2.command.Parser.read(Parser.java:3518)
+	at org.h2.command.Parser.readIfMore(Parser.java:950)
+	at org.h2.command.Parser.parseCreateTable(Parser.java:6571)
+	at org.h2.command.Parser.parseCreate(Parser.java:4615)
+	at org.h2.command.Parser.parsePrepared(Parser.java:380)
+	at org.h2.command.Parser.parse(Parser.java:335)
+	at org.h2.command.Parser.parse(Parser.java:311)
+	at org.h2.command.Parser.prepareCommand(Parser.java:278)
+	at org.h2.engine.Session.prepareLocal(Session.java:611)
+	at org.h2.engine.Session.prepareCommand(Session.java:549)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1247)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:217)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:205)
+	at org.flywaydb.core.internal.jdbc.JdbcTemplate.executeStatement(JdbcTemplate.java:235)
+	at org.flywaydb.core.internal.sqlscript.StandardSqlStatement.execute(StandardSqlStatement.java:42)
+	at org.flywaydb.core.internal.sqlscript.DefaultSqlScriptExecutor.executeStatement(DefaultSqlScriptExecutor.java:189)
+	... 51 more
+</error>
+    <system-err>nov. 11, 2018 7:05:29 P.M. org.flywaydb.core.internal.license.VersionPrinter printVersionOnly
+INFO: Flyway Community Edition 5.2.0 by Boxfuse
+nov. 11, 2018 7:05:30 P.M. org.flywaydb.core.internal.database.DatabaseFactory createDatabase
+INFO: Database: jdbc:h2:mem:test (H2 1.4)
+nov. 11, 2018 7:05:30 P.M. org.flywaydb.core.internal.command.DbValidate validate
+INFO: Successfully validated 5 migrations (execution time 00:00.037s)
+nov. 11, 2018 7:05:30 P.M. org.flywaydb.core.internal.schemahistory.JdbcTableSchemaHistory create
+INFO: Creating Schema History table: &quot;PUBLIC&quot;.&quot;flyway_schema_history&quot;
+nov. 11, 2018 7:05:30 P.M. org.flywaydb.core.internal.command.DbMigrate migrateGroup
+INFO: Current version of schema &quot;PUBLIC&quot;: &lt;&lt; Empty Schema &gt;&gt;
+nov. 11, 2018 7:05:30 P.M. org.flywaydb.core.internal.command.DbMigrate doMigrateGroup
+INFO: Migrating schema &quot;PUBLIC&quot; to version 002 - create table days
+nov. 11, 2018 7:05:30 P.M. org.flywaydb.core.internal.command.DbMigrate doMigrateGroup
+INFO: Migrating schema &quot;PUBLIC&quot; to version 003 - create table timeslots
+nov. 11, 2018 7:05:30 P.M. org.flywaydb.core.internal.command.DbMigrate doMigrateGroup
+INFO: Migrating schema &quot;PUBLIC&quot; to version 004 - create table rooms
+nov. 11, 2018 7:05:30 P.M. org.flywaydb.core.internal.command.DbMigrate doMigrateGroup
+INFO: Migrating schema &quot;PUBLIC&quot; to version 006 - create table tracks
+nov. 11, 2018 7:05:30 P.M. org.flywaydb.core.internal.command.DbMigrate applyMigrations
+SEVERE: Migration of schema &quot;PUBLIC&quot; to version 006 - create table tracks failed! Please restore backups and roll back database and code!
+</system-err>
+  </testcase>
+  <testcase classname="no.kristiania.prg200.database.RoomsDaoTest" name="shouldCreateRooms" time="0.001">
+    <error message="Validate failed: Detected failed migration to version 006 (create table tracks)" type="org.flywaydb.core.api.FlywayException">org.flywaydb.core.api.FlywayException: Validate failed: Detected failed migration to version 006 (create table tracks)
+	at org.flywaydb.core.Flyway.doValidate(Flyway.java:1375)
+	at org.flywaydb.core.Flyway.access$100(Flyway.java:82)
+	at org.flywaydb.core.Flyway$1.execute(Flyway.java:1257)
+	at org.flywaydb.core.Flyway$1.execute(Flyway.java:1249)
+	at org.flywaydb.core.Flyway.execute(Flyway.java:1604)
+	at org.flywaydb.core.Flyway.migrate(Flyway.java:1249)
+	at no.kristiania.prg200.database.TestDataSource.createDataSource(TestDataSource.java:18)
+	at no.kristiania.prg200.database.RoomsDaoTest.&lt;init&gt;(RoomsDaoTest.java:13)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:488)
+	at org.junit.runners.BlockJUnit4ClassRunner.createTest(BlockJUnit4ClassRunner.java:217)
+	at org.junit.runners.BlockJUnit4ClassRunner$1.runReflectiveCall(BlockJUnit4ClassRunner.java:266)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.BlockJUnit4ClassRunner.methodBlock(BlockJUnit4ClassRunner.java:263)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:252)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:141)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:112)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:564)
+	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray(ReflectionUtils.java:189)
+	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:165)
+	at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:85)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
+</error>
+    <system-err>nov. 11, 2018 7:05:30 P.M. org.flywaydb.core.internal.database.DatabaseFactory createDatabase
+INFO: Database: jdbc:h2:mem:test (H2 1.4)
+</system-err>
+  </testcase>
+  <testcase classname="no.kristiania.prg200.database.RoomsDaoTest" name="shouldRetrieveRoomsById" time="0.001">
+    <error message="Validate failed: Detected failed migration to version 006 (create table tracks)" type="org.flywaydb.core.api.FlywayException">org.flywaydb.core.api.FlywayException: Validate failed: Detected failed migration to version 006 (create table tracks)
+	at org.flywaydb.core.Flyway.doValidate(Flyway.java:1375)
+	at org.flywaydb.core.Flyway.access$100(Flyway.java:82)
+	at org.flywaydb.core.Flyway$1.execute(Flyway.java:1257)
+	at org.flywaydb.core.Flyway$1.execute(Flyway.java:1249)
+	at org.flywaydb.core.Flyway.execute(Flyway.java:1604)
+	at org.flywaydb.core.Flyway.migrate(Flyway.java:1249)
+	at no.kristiania.prg200.database.TestDataSource.createDataSource(TestDataSource.java:18)
+	at no.kristiania.prg200.database.RoomsDaoTest.&lt;init&gt;(RoomsDaoTest.java:13)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:488)
+	at org.junit.runners.BlockJUnit4ClassRunner.createTest(BlockJUnit4ClassRunner.java:217)
+	at org.junit.runners.BlockJUnit4ClassRunner$1.runReflectiveCall(BlockJUnit4ClassRunner.java:266)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.BlockJUnit4ClassRunner.methodBlock(BlockJUnit4ClassRunner.java:263)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:252)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:141)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:112)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:564)
+	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray(ReflectionUtils.java:189)
+	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:165)
+	at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:85)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
+</error>
+    <system-err>nov. 11, 2018 7:05:30 P.M. org.flywaydb.core.internal.database.DatabaseFactory createDatabase
+INFO: Database: jdbc:h2:mem:test (H2 1.4)
+</system-err>
+  </testcase>
+</testsuite>

@@ -118,7 +118,7 @@ public class DBConnection {
             executeConnection ( dataSource, readFile ( "/Users/linenathalieronning/Desktop/AvansertJavaMappe/--EKSAMEN--JAVA--/pgr200-eksamen-LegoLine/DatabaseCore/src/main/resources/db/migration/V002__create_table_days.sql" ) );
             executeConnection ( dataSource, readFile ( "/Users/linenathalieronning/Desktop/AvansertJavaMappe/--EKSAMEN--JAVA--/pgr200-eksamen-LegoLine/DatabaseCore/src/main/resources/db/migration/V003__create_table_timeslots.sql" ) );
             executeConnection ( dataSource, readFile ( "/Users/linenathalieronning/Desktop/AvansertJavaMappe/--EKSAMEN--JAVA--/pgr200-eksamen-LegoLine/DatabaseCore/src/main/resources/db/migration/V004__create_table_rooms.sql" ) );
-            executeConnection ( dataSource, readFile ( "/Users/linenathalieronning/Desktop/AvansertJavaMappe/--EKSAMEN--JAVA--/pgr200-eksamen-LegoLine/DatabaseCore/src/main/resources/db/migration/V005__create_table_tracks.sql" ) );
+            executeConnection ( dataSource, readFile ( "/Users/linenathalieronning/Desktop/AvansertJavaMappe/--EKSAMEN--JAVA--/pgr200-eksamen-LegoLine/DatabaseCore/src/main/resources/db/migration/V006__create_table_tracks.sql" ) );
         } catch (SQLException e){
             e.printStackTrace ();
         }
