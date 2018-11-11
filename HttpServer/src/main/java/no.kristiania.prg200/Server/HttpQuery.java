@@ -57,7 +57,7 @@ public class HttpQuery {
         try {
             return URLEncoder.encode ( s, "UTF-8" );
         } catch (UnsupportedEncodingException e) {
-            throw new RuntimeException ( "UTF-8 URLDecode should always be supported", e );
+            throw new RuntimeException ( "UTF-8 URLEncode should always be supported", e );
         }
     }
 

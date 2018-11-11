@@ -17,16 +17,8 @@ public class Conference {
         //Properties prop = null;
         new HttpEchoServer ( 10081 );
         DBConnection dbConnection = new DBConnection();
-        new Conference ().runInserts (args);
+        new Conference ().runUserbasedInserts (args);
 
-//        DataSource dataSource = dbConnection.createDataSource();
-
-        //DataSource dataSource = dbConnection.createDataSource( prop );
-        //dataSource.getConnection();
-//     configureFlyway ();
-
-        //HttpEchoServer echoServer = new HttpEchoServer ( 5433 );
-        //echoServer.main ( args );
 
 //        /*Forsøker å lage et standard-objekt av track og skrive dem ut*/
 //        Tracks tracks = new Tracks(dataSource);
@@ -51,7 +43,7 @@ public class Conference {
 
     }
 
-    public void runInserts(String[] args) throws IOException, SQLException {
+    public void runUserbasedInserts(String[] args) throws IOException, SQLException {
         String message = "Vennligst skriv inn følgende felter i ";
 
         System.out.println (message + "rooms: ");

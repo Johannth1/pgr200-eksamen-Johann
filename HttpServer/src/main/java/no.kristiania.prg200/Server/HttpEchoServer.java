@@ -2,7 +2,10 @@ package no.kristiania.prg200.Server;
 
 
 import no.kristiania.prg200.Client.SendRequest;
+import no.kristiania.prg200.database.core.DBConnection;
+import no.kristiania.prg200.database.core.TalksDao;
 
+import javax.sql.DataSource;
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
@@ -14,18 +17,18 @@ import java.util.Scanner;
 
 public class HttpEchoServer {
 
-
+    static DataSource dataSource;
     private ServerSocket serverSocket;
 
-    public HttpEchoServer(int port) throws IOException{
+    public HttpEchoServer(DataSource dataSource, int port) throws IOException{
         serverSocket = new ServerSocket (port);
+        this.dataSource = dataSource;
         new Thread(this::runServerThread).start();
-//        new Thread(this::runServerThread).start();
-//        new Thread(this::runServerThread).start();
+
     }
 
     public static void main(String[] args) throws IOException{
-        new HttpEchoServer(10081);
+        new HttpEchoServer(DBConnection.createDataSource (  ), 10081);
     }
 
 //    private Connection conn =  null;
@@ -62,12 +65,12 @@ public class HttpEchoServer {
     }
 
     private void handleRequest(Socket clientSocket) throws IOException{
-        String statusCode;
-        String body;
+        String statusCode = null;
+        String body = null;
         String add;
 
 
-        HttpQuery query;
+        HttpQuery query = null;
         HttpHeader responseHeader = new HttpHeader();
 
         try {
@@ -84,8 +87,13 @@ public class HttpEchoServer {
                 query = path.query();
             }
 
+            TalksDao dao = new TalksDao (dataSource);
+
+
+
             statusCode = query.get("status").orElse("200");
-            body = query.get("body").orElse("None");
+            body = dao.listAll().toString();
+            //body = query.get("body").orElse("None");
             add = query.get("add").orElse("");
             System.out.println (add);
 
@@ -95,6 +103,8 @@ public class HttpEchoServer {
             writeResponseLine(clientSocket, "500");
             responseHeader.writeTo(clientSocket.getOutputStream());
             return;
+        } catch (SQLException e) {
+            e.printStackTrace ();
         }
 
         writeResponseLine(clientSocket, statusCode);

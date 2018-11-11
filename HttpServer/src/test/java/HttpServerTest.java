@@ -4,9 +4,11 @@ import no.kristiania.prg200.Server.HttpEchoServer;
 import no.kristiania.prg200.Server.HttpQuery;
 import no.kristiania.prg200.Client.HttpRequest;
 import no.kristiania.prg200.Client.HttpResponse;
+import no.kristiania.prg200.database.core.DBConnection;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import javax.sql.DataSource;
 import java.io.IOException;
 import java.sql.SQLException;
 
@@ -15,10 +17,11 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class HttpServerTest {
 
     private static HttpEchoServer server;
+    private static DataSource dataSource;
 
     @BeforeClass
     public static void createServer() throws IOException {
-        server = new HttpEchoServer ( 0 );
+        server = new HttpEchoServer (dataSource,0 );
     }
 
     @Test
