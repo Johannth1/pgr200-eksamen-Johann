@@ -15,7 +15,7 @@ public class Conference {
     public static void main(String[] args) throws IOException, SQLException {
         /*Creates a DBConnection-object that connects us to our DB*/
         //Properties prop = null;
-        new HttpEchoServer ( 10081 );
+        new HttpEchoServer ( DBConnection.createDataSource (), 10081 );
         DBConnection dbConnection = new DBConnection();
         new Conference ().runUserbasedInserts (args);
 
