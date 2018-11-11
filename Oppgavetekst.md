@@ -99,13 +99,13 @@ I tilbakemeldingen er det lurt å stille spørsmålene: 1. Hva lærte jeg av den
   - [ ] update: Endre title, description eller topic for et foredrag
   - [ ] Valgfri tillegg: Kommandoer for å sette opp hvor mange dager og timer konferansen skal vare og hvor mange parallelle spor den skal inneholde.
 - [ ] Dokumentasjon i form av README.md
-  - [ ] Navn og Feide-ID på dere de som var på teamet
+  - [x] Navn og Feide-ID på dere de som var på teamet
   - [ ] Inkluderer dokumentasjonen hvordan man tester ut funksjonaliteten programmet manuelt? (Inkludert eventuell ekstra funksjonalitet dere har tatt med)
-  - [ ] Inkluderer dokumentasjonen en evaluering av hvordan man jobbet sammen?
-  - [ ] Inkluderer dokumentasjonen en screencast av en parprogrammeringsesjon?
+  - [x] Inkluderer dokumentasjonen en evaluering av hvordan man jobbet sammen?
+  - [x] Inkluderer dokumentasjonen en screencast av en parprogrammeringsesjon?
   - [ ] Inkluderer dokumentasjonen en evaluering *fra* en annen gruppe og en evaluering *til* en annen gruppe?
   - [ ] Inkluderer dokumentasjonen en UML diagram med datamodellen?
-  - [ ] Inkluderer dokumentasjonen en link til screencast av programmeringsesjon?
+  - [x] Inkluderer dokumentasjonen en link til screencast av programmeringsesjon?
   - [ ] Inkluderer dokumentasjonen en egenevaluering med hvilken karakter gruppen mener de fortjener?
 
 ### Forberedelse
