@@ -1,12 +1,19 @@
-#Gjensidig evaluering til en annen gruppe 
+# Tilbakemelding gitt
 ## Gruppe som er blitt evaluert: 16
 ### Gruppe som har utført evaluering: 33
 
-####Hva lærte vi av å se på koden? 
-Det vi lærte av å se på, så var noen metoder som f.eks. CreateStandardRooms som ble brukt som vi ikke har. 
-Det andre var at vi lærte av å bruke metoder fra en annen klasse til å bruke til test. 
-Tredje som ble inserpert er navnoppgivning til metotoder som blir kalt.
+Hva var bra? 
+De har ryddig mappestruktur med logiske moduler og gode klassenavn så gjorde det enkelt å skaffe seg oversikt over prosjektet. 
+Dessuten god bruk av pakker som deler opp innad i modulene. Testene deres kjører grønt, men får ikke kobling til server. 
+Dette kan være en feil lokalt på pc vår.
 
-####Hva tror du forfatter av koden kan ha nytte av å lære mer om? 
-Det de kan lære er å dele klasse, interface i flere mapper der de kunne vært eget mappe hver. 
-Det var en string som var tom som var mellom to andre string.
+Hva funket dårlig/mindre bra? 
+De har litt kode innimellom som er kommentert ut og ikke lenger i bruk som de kunne ha ryddet bort. 
+Ellers har de ryddet i det meste av imports og det er lite i koden som ikke er tatt i bruk av variabler og parametre.
+
+Konklusjon
+De har ryddig kode som kjører og fin mappestruktur som gjør det enkelt for ny bruker å sette seg inn i.
+
+
+
+
