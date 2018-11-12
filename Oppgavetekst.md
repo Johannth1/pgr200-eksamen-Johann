@@ -88,25 +88,25 @@ I tilbakemeldingen er det lurt å stille spørsmålene: 1. Hva lærte jeg av den
   - [x] Produserer `mvn package` en executable jar? (tips: Bruk `maven-shade-plugin`)
   - [x] Bruker koden Java 8 og UTF-8
   - [x] Bygger prosjektet på [https://travis-ci.com](https://travis-ci.com)?
-  - [ ] Har du god test-dekning? (tips: Sett opp jacoco-maven-plugin til å kreve at minst 65% av linjene har testdekning)
+  - [x] Har du god test-dekning? (tips: Sett opp jacoco-maven-plugin til å kreve at minst 65% av linjene har testdekning)
   - [x] Er koden delt inn i flere Maven `<modules>`?
   - [ ] Bruker kommunikasjon mellom klient og server HTTP korrekt?
-  - [ ] Kobler serveren seg opp mot PostgreSQL ved hjelp av konfigurasjon i fila `innlevering.properties` i *current working directory* med `dataSource.url`, `dataSource.username`, `dataSource.password`?
+  - [x] Kobler serveren seg opp mot PostgreSQL ved hjelp av konfigurasjon i fila `innlevering.properties` i *current working directory* med `dataSource.url`, `dataSource.username`, `dataSource.password`?
 - [ ] Funksjonalitet
   - [ ] add: Legg til et foredrag i databasen med title, description og topic (valgfritt)
   - [ ] list: List opp alle foredrag i basen med et valgfritt topic
   - [ ] show: Vis detaljer for et foredrag
   - [ ] update: Endre title, description eller topic for et foredrag
   - [ ] Valgfri tillegg: Kommandoer for å sette opp hvor mange dager og timer konferansen skal vare og hvor mange parallelle spor den skal inneholde.
-- [ ] Dokumentasjon i form av README.md
+- [x] Dokumentasjon i form av README.md
   - [x] Navn og Feide-ID på dere de som var på teamet
-  - [ ] Inkluderer dokumentasjonen hvordan man tester ut funksjonaliteten programmet manuelt? (Inkludert eventuell ekstra funksjonalitet dere har tatt med)
+  - [x] Inkluderer dokumentasjonen hvordan man tester ut funksjonaliteten programmet manuelt? (Inkludert eventuell ekstra funksjonalitet dere har tatt med)
   - [x] Inkluderer dokumentasjonen en evaluering av hvordan man jobbet sammen?
   - [x] Inkluderer dokumentasjonen en screencast av en parprogrammeringsesjon?
-  - [ ] Inkluderer dokumentasjonen en evaluering *fra* en annen gruppe og en evaluering *til* en annen gruppe?
-  - [ ] Inkluderer dokumentasjonen en UML diagram med datamodellen?
+  - [x] Inkluderer dokumentasjonen en evaluering *fra* en annen gruppe og en evaluering *til* en annen gruppe?
+  - [x] Inkluderer dokumentasjonen en UML diagram med datamodellen?
   - [x] Inkluderer dokumentasjonen en link til screencast av programmeringsesjon?
-  - [ ] Inkluderer dokumentasjonen en egenevaluering med hvilken karakter gruppen mener de fortjener?
+  - [x] Inkluderer dokumentasjonen en egenevaluering med hvilken karakter gruppen mener de fortjener?
 
 ### Forberedelse
 
@@ -115,10 +115,10 @@ I tilbakemeldingen er det lurt å stille spørsmålene: 1. Hva lærte jeg av den
 
 ### Innlevering
 
-- [ ] Gi veilederne `hakonschutt` og `mudasar187` tilgang til repository
-- [ ] Tag koden med `innlevering` i GitHub
-- [ ] Ta en zip-eksport fra GitHub
-- [ ] Last opp zip-fil i WiseFlow
+- [x] Gi veilederne `hakonschutt` og `mudasar187` tilgang til repository
+- [x] Tag koden med `innlevering` i GitHub
+- [x] Ta en zip-eksport fra GitHub
+- [x] Last opp zip-fil i WiseFlow
 - [ ] Dersom innlevering #1 eller innlevering #2 ikke ble godkjent *i WiseFlow*, last opp zip-fil med hver av disse innleveringene
 
 ## Retningslinjer for vurdering
