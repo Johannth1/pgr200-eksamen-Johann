@@ -6,6 +6,7 @@ import no.kristiania.prg200.Server.HttpQuery;
 
 import java.io.IOException;
 import java.io.OutputStream;
+import java.io.PrintWriter;
 import java.sql.SQLException;
 import java.util.Scanner;
 
@@ -15,24 +16,14 @@ public class SendRequest {
     OutputStream output;
     HttpQuery httpQuery = new HttpQuery (  );
 
-    public SendRequest sendRequestTarget() throws IOException, SQLException {
+    public PrintWriter sendRequestTarget(PrintWriter pw) throws IOException, SQLException {
         String test = httpQuery.urlEncode(insertTalk ());
-        output.write ( Integer.parseInt ( test ) );
-        return null;
+        pw = new PrintWriter ( insertTalk () );
+        //output.;
+        System.out.println ("printer ut pw :\n" + pw);
+        return pw;
     }
 
-    public void insertRoom() throws IOException, SQLException {
-
-        Scanner reader = new Scanner(System.in);
-
-        String room = reader.nextLine ();
-
-        String requestTarget = "/echo?add=rooms.rooms_room(" + room + ")";
-
-        hr = new HttpRequest("localhost", 10081, requestTarget);
-
-        hr.execute ();
-    }
 
     public String insertTalk() throws IOException, SQLException {
 
@@ -50,6 +41,20 @@ public class SendRequest {
 
         return requestTarget;
     }
+
+    public void insertRoom() throws IOException, SQLException {
+
+        Scanner reader = new Scanner(System.in);
+
+        String room = reader.nextLine ();
+
+        String requestTarget = "/echo?add=rooms.rooms_room(" + room + ")";
+
+        hr = new HttpRequest("localhost", 10081, requestTarget);
+
+        hr.execute ();
+    }
+
 
     public void insertDay() throws IOException, SQLException {
 
