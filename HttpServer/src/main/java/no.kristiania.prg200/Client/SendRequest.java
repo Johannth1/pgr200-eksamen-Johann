@@ -12,20 +12,35 @@ import java.util.Scanner;
 
 public class SendRequest {
 
-    private HttpRequest hr;
+    private static HttpRequest hr;
     OutputStream output;
     HttpQuery httpQuery = new HttpQuery (  );
 
-    public PrintWriter sendRequestTarget(PrintWriter pw) throws IOException, SQLException {
-        String test = httpQuery.urlEncode(insertTalk ());
-        pw = new PrintWriter ( insertTalk () );
-        //output.;
-        System.out.println ("printer ut pw :\n" + pw);
-        return pw;
+    public static void runUserbasedInsertsTalks(String[] args) throws IOException, SQLException {
+        String message = "Vennligst skriv inn følgende felter i ";
+
+        System.out.println (message + "talks: ");
+        System.out.println ("talks_title, talks_description, talks_topic");
+        insertTalk ();
+
+        /*Prøvde å skrive ut URIen som en String med sout sånn at det var mulig å se den i sin helhet*/
+//        String uriString;
+//        uriString = sr.insertTalk ();
+//        System.out.println (uriString);
+
+
     }
 
+//    public PrintWriter sendRequestTarget(PrintWriter pw) throws IOException, SQLException {
+//        String test = httpQuery.urlEncode(insertTalk ());
+//        pw = new PrintWriter ( insertTalk () );
+//        //output.;
+//        System.out.println ("printer ut pw :\n" + pw);
+//        return pw;
+//    }
 
-    public String insertTalk() throws IOException, SQLException {
+
+    public static String insertTalk() throws IOException, SQLException {
 
         Scanner reader = new Scanner(System.in);
 

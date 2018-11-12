@@ -16,39 +16,46 @@ public class Conference {
 
     public static void main(String[] args) throws IOException, SQLException {
 
+        //starter opp serveren og kobler den sammen med postgres-databasen
         new HttpEchoServer ( DBConnection.createDataSource (), 10081 );
 
-        new Conference ().runUserbasedInsertsTalks (args);
+        //tar imot brukerinput fra terminal og gjør om til en URI/URL som etter hvert kan sendes med en type outputstream.
+        SendRequest.runUserbasedInsertsTalks (args);
 
 
 
         //Prøver å sende String via en type OutputStream GET/echo?add=talks.talks_title, talks_description, talks_topic(?, ?, ?)
         //videre til DBen og så dekode stringen så det blir en SQL request
 
-        SendRequest sr = new SendRequest ();
-        PrintWriter pw = null;
-        pw = new PrintWriter (sr.sendRequestTarget ( pw ));
+//        SendRequest sr = new SendRequest ();
+//        PrintWriter pw = null;
+//        sr.sendRequestTarget ( pw );
+        //pw = new PrintWriter (sr.sendRequestTarget ( pw ));
+        //pw.println (  );
         //sr.sendRequestTarget ( pw );
-        System.out.println (pw);
+        //System.out.println (pw);
+
+
+        //Legger inn tilfeldige data i tabellene i databasen vår.
+        Tracks tracks = new Tracks ( DBConnection.createDataSource () );
+        TracksDao tracksDao = new TracksDao (DBConnection.createDataSource ());
+
+        Tracks sampleTrack = tracks.createStandardTracks ();
+        Tracks sampleTrack1 = tracks.createStandardTracks ();
+        Tracks sampleTrack2 = tracks.createStandardTracks ();
+
+        tracksDao.save ( sampleTrack );
+        tracksDao.save ( sampleTrack1 );
+        tracksDao.save ( sampleTrack2 );
+
+        //Lister opp dataene i databasen vår.
+        tracksDao.listAll ();
+
 
 
     }
 
 
-    public void runUserbasedInsertsTalks(String[] args) throws IOException, SQLException {
-        String message = "Vennligst skriv inn følgende felter i ";
-
-        System.out.println (message + "talks: ");
-        System.out.println ("talks_title, talks_description, talks_topic");
-        sr.insertTalk ();
-
-        /*Prøvde å skrive ut URIen som en String med sout sånn at det var mulig å se den i sin helhet*/
-//        String uriString;
-//        uriString = sr.insertTalk ();
-//        System.out.println (uriString);
-
-
-    }
 
 
 }
