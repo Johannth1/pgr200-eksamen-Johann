@@ -11,6 +11,7 @@ FeideID   Ronlin17                   Nesjoh17
 ###Kjøreinstruksjoner
 Kjør main metoden i klassen conference, det skal starte opp et HttpEchoServer-objekt og kjøre dennes main-metode, 
 samt koble HttpServeren opp mot postgres-databasen vår via DBConnection.createDataSource().
+Samtidig opprettes Tracks og TracksDao som populerer DBen vår med data(selv om disse dataene ikke kommer fra klienten, dessverre).
 
 
 ----------------
