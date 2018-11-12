@@ -1,15 +1,25 @@
 package no.kristiania.prg200.Client;
 
 
-import no.kristiania.prg200.Client.HttpRequest;
+
+import no.kristiania.prg200.Server.HttpQuery;
 
 import java.io.IOException;
+import java.io.OutputStream;
 import java.sql.SQLException;
 import java.util.Scanner;
 
 public class SendRequest {
 
     private HttpRequest hr;
+    OutputStream output;
+    HttpQuery httpQuery = new HttpQuery (  );
+
+    public SendRequest sendRequestTarget() throws IOException, SQLException {
+        String test = httpQuery.urlEncode(insertTalk ());
+        output.write ( Integer.parseInt ( test ) );
+        return null;
+    }
 
     public void insertRoom() throws IOException, SQLException {
 
@@ -24,7 +34,7 @@ public class SendRequest {
         hr.execute ();
     }
 
-    public void insertTalk() throws IOException, SQLException {
+    public String insertTalk() throws IOException, SQLException {
 
         Scanner reader = new Scanner(System.in);
 
@@ -36,8 +46,9 @@ public class SendRequest {
                 + title + ", " + description + ", " + topic + ")";
 
         hr = new HttpRequest("localhost", 10081, requestTarget);
-
         hr.execute ();
+
+        return requestTarget;
     }
 
     public void insertDay() throws IOException, SQLException {

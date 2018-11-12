@@ -45,7 +45,7 @@ public class HttpQuery {
         return result.toString ();
     }
 
-    private String urlDecode(String s) {
+    public String urlDecode(String s) {
         try {
             return URLDecoder.decode ( s, "UTF-8" );
         } catch (UnsupportedEncodingException e) {
@@ -53,7 +53,7 @@ public class HttpQuery {
         }
     }
 
-    private String urlEncode(String s) {
+    public String urlEncode(String s) {
         try {
             return URLEncoder.encode ( s, "UTF-8" );
         } catch (UnsupportedEncodingException e) {
